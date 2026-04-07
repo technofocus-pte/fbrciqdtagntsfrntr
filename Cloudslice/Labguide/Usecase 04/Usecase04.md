@@ -1,4 +1,4 @@
-## Usecase 03- Connect Fabric Data Agent to Microsoft Foundry for unified and intelligent data insights
+## Usecase 04- Connect Fabric Data Agent to Microsoft Foundry for unified and intelligent data insights
 **Introduction**
 
 Modern organizations generate large volumes of data across multiple
