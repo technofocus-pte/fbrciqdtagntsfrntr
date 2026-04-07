@@ -1,4 +1,4 @@
-## Usecase 01- Build sales analytics with AdventureWorks dataset using Fabric data agent
+## Usecase 02- Build sales analytics with AdventureWorks dataset using Fabric data agent
 
 **Introduction**
 
