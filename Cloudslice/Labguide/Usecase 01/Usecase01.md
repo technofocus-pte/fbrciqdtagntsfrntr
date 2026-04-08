@@ -1019,18 +1019,24 @@ incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs
 
 Next, add a custom instruction to the agent.
 
-1.  Select **Agent instructions** from the menu ribbon.
+1. Select **Add Data** on the left panel.
+
+2. Select the **RetailSalesOntology
+
+1. Select **Data Source**, **RetailSalesOntology** and select **add**.
+
+3. **Agent instructions** from the menu ribbon.
 
     ![A screenshot of a computer AI-generated content may be
 incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image144.png)
 
-2.  At the bottom of the input box, add Support group by in GQL. This
+4.  At the bottom of the input box, add Support group by in GQL. This
     instruction enables better aggregation across ontology data.
 
     ![A screenshot of a computer AI-generated content may be
 incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image145.png)
 
-3.  The instruction is applied automatically. Optionally, close
+5.  The instruction is applied automatically. Optionally, close
     the **Agent instructions** tab.
 
     ![A screenshot of a computer AI-generated content may be
