@@ -123,7 +123,7 @@ incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs
     ![A screenshot of a computer AI-generated content may be
 incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image11.png)
 
-3.  Browse to **C:\Lab Files\Cloud_slice\LabFiles\Lab1** on your VM, then
+3.  Browse to **C:\LabFiles\Lab1** on your VM, then
     select **DimProducts.csv, DimStore.csv, FactSale.csv** and
     **Freezer.csv** file and click on **Open** button.
 
@@ -252,7 +252,7 @@ incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs
     ![A screenshot of a computer AI-generated content may be
 incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image37.png)
 
-9.  Browse to **C:\Lab Files\Cloud_slice\LabFiles\Lab1** on your VM, then
+9.  Browse to **C:\LabFiles\Lab1** on your VM, then
     select **FreezerTelemetry.csv** file and click on **Open** button.
 
     ![A screenshot of a computer AI-generated content may be
