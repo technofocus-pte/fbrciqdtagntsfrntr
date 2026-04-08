@@ -500,8 +500,8 @@ incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs
 
     1.  **Source entity type \Source column**: Select **StoreId**.
         This setting specifies the column in the relationship source
-        data table (*factsales \* StoreId) whose values match the key
-        property defined on the *Store* entity (*dimstore \* StoreId).
+        data table (*factsales* *StoreId*) whose values match the key
+        property defined on the *Store* entity (*dimstore* *StoreId*).
         In the tutorial data, the column name is the same in both
         tables.
 
@@ -661,7 +661,7 @@ incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs
 
 ## Task 3: Bind time series data to additional properties
 
-Next, add time series data on the **Freezer **entity, by creating new
+Next, add time series data on the **Freezer** entity, by creating new
 properties and binding time series data to them in a single data binding
 operation.
 
