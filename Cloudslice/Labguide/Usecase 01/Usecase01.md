@@ -697,7 +697,7 @@ incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs
 incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image100.png)
 
 3.  Under **Bind your properties \Timeseries**, the time series
-    columns from the **FreezerTelemetry**table populate automatically
+    columns from the **FreezerTelemetry** table populate automatically
     with matching property names for the *Freezer* entity type. Keep the
     default selections.
 
