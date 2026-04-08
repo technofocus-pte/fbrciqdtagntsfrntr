@@ -979,7 +979,7 @@ the ontology's definitions and bindings.
 Follow these steps to create a new data agent that connects to your
 ontology (preview) item.
 
-1.  Now, click on **Fabric IQ Ontology XX** on the left-sided navigation
+1.  Now, click on **Fabric IQ Ontology @lab.labinstance.id** on the left-sided navigation
     pane.
 
     ![A screenshot of a computer AI-generated content may be
