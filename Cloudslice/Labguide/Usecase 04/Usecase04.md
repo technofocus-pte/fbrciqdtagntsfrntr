@@ -1,4 +1,4 @@
-## Usecase 04- Connect Fabric Data Agent to Microsoft Foundry for unified and intelligent data insights
+## Usecase 04 - Connect Fabric Data Agent to Microsoft Foundry for unified and intelligent data insights
 **Introduction**
 
 Modern organizations generate large volumes of data across multiple
@@ -85,7 +85,7 @@ accessibility and decision-making. The key goals include:
 
 **Solution architecture**
 
-    ![Architecture Diagram](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image1.png)
+![Architecture Diagram](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image1.png)
 
 The solution combines Microsoft Fabric and Microsoft Foundry to create
 an AI solution that can answer questions using both structured data and
@@ -109,7 +109,7 @@ unstructured documents:
 - **GitHub Account: You are expected to have your own GitHub login
   credentials.  
   If you do not have an account, please create one by visiting:  
-  +++<https://github.com/signup?user_email=&source=form-home-signup+++>**
+  +++https://github.com/signup?user_email=&source=form-home-signup+++**
 
 ## Task 0: Create a GitHub account
 
@@ -117,7 +117,7 @@ In this task, you create a new **Github account** with the same tenant
 credentials that you have used in this lab.
 
 1.  Navigate to the GitHub with this link
-    +++<https://github.com/+++> and click on **Sign up** to proceed
+    +++=https://github.com/+++ and click on **Sign up** to proceed
     further.
 
     ![A screenshot of a computer AI-generated content may be
@@ -158,7 +158,7 @@ reports.
 
 1.  Open your browser, navigate to the address bar, and type or paste
     the following
-    URL:+++https://app.fabric.microsoft.com/+++ press the **Enter** button
+    URL: +++https://app.fabric.microsoft.com/+++ press the **Enter** button
     and sign in with your credentials
 
     |   |   |
