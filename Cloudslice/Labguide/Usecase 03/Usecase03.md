@@ -364,7 +364,7 @@ queries.
 3.  To test the agent, run the application and enter the sample
     questions to verify the responses.
   
-    ++++List products with high list price but low sales volume.+++
+    +++List products with high list price but low sales volume.+++
 
     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2003/media/image51.png)
 
