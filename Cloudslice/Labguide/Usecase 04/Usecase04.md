@@ -1,4 +1,4 @@
-## Usecase 04- Connect Fabric Data Agent to Microsoft Foundry for unified and intelligent data insights
+## Usecase 04 - Connect Fabric Data Agent to Microsoft Foundry for unified and intelligent data insights
 **Introduction**
 
 Modern organizations generate large volumes of data across multiple
@@ -69,7 +69,7 @@ accessibility and decision-making. The key goals include:
 
 - Test the agent in Foundry Playground with real business queries.
 
-- Demonstrate natural language–to–data retrieval workflows using Fabric
+- Demonstrate natural language-to-data retrieval workflows using Fabric
   Lakehouse datasets.
 
 - Deliver insights such as inspection pass/fail rates, averages, trends,
@@ -85,69 +85,69 @@ accessibility and decision-making. The key goals include:
 
 **Solution architecture**
 
-![Architecture Diagram](./media/image1.png)
+![Architecture Diagram](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image1.png)
 
 The solution combines Microsoft Fabric and Microsoft Foundry to create
 an AI solution that can answer questions using both structured data and
 unstructured documents:
 
-- **Microsoft Fabric** provides the data layer with Lakehouse,
+- **Microsoft Fabric** provides the data layer with Lakehouse,
   Warehouse, and the Fabric IQ semantic layer for natural language to
   SQL translation
 
-- **Microsoft Foundry** hosts the AI agents, including Foundry IQ for
+- **Microsoft Foundry** hosts the AI agents, including Foundry IQ for
   document retrieval and the Orchestrator Agent that orchestrates both
   capabilities
 
-- **Azure AI Services** powers the language models (GPT-4o-mini) and
+- **Azure AI Services** powers the language models (GPT-4o-mini) and
   embeddings
 
-- **Azure AI Search** stores document vectors for semantic retrieval
+- **Azure AI Search** stores document vectors for semantic retrieval
 
 ## Prerequisites
 
 - **GitHub Account: You are expected to have your own GitHub login
   credentials.  
   If you do not have an account, please create one by visiting:  
-  +++<https://github.com/signup?user_email=&source=form-home-signup+++>**
+  +++https://github.com/signup?user_email=&source=form-home-signup+++**
 
 ## Task 0: Create a GitHub account
 
-In this task, you create a new **Github account** with the same tenant
+In this task, you create a new **Github account** with the same tenant
 credentials that you have used in this lab.
 
 1.  Navigate to the GitHub with this link
-    +++<https://github.com/+++> and click on **Sign up** to proceed
+    +++https://github.com/+++ and click on **Sign up** to proceed
     further.
 
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image2.png)
+    ![A screenshot of a computer AI-generated content may be
+incorrect.](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image2.png)
 
 2.  Now, to create a new GitHub account, enter
-    the **email**, **password** and a unique **username** and click
-    on **Continue** button.
+    the **email**, **password** and a unique **username** and click
+    on **Continue** button.
 
-> ![A screenshot of a login box AI-generated content may be
-> incorrect.](./media/image3.png)
+    ![A screenshot of a login box AI-generated content may be
+incorrect.](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image3.png)
 
-3.  Start the **verification** **puzzle** by following the instruction
-    on the screen. Click on **Submit.**
+3.  Start the **verification** **puzzle** by following the instruction
+    on the screen. Click on **Submit.**
 
-4.  Enter the **verification** **code** you’ve received on your mail.
+4.  Enter the **verification** **code** you've received on your mail.
 
-> ![A screenshot of a email form AI-generated content may be
-> incorrect.](./media/image4.png)
+    ![A screenshot of a email form AI-generated content may be
+incorrect.](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image4.png)
 
-5.  Now, with your credentials sign-in to GitHub and click on **Sign
+5.  Now, with your credentials sign-in to GitHub and click on **Sign
     in.**
 
-> ![A screenshot of a login page AI-generated content may be
-> incorrect.](./media/image5.png)
+    ![A screenshot of a login page AI-generated content may be
+incorrect.](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image5.png)
 
 6.  You have successfully created a new account on GitHub.
 
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image6.png)
+    ![A screenshot of a computer AI-generated content may be
+incorrect.](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image6.png)
 
 ## Task 1: Create a Fabric workspace
 
@@ -158,228 +158,231 @@ reports.
 
 1.  Open your browser, navigate to the address bar, and type or paste
     the following
-    URL:+++https://app.fabric.microsoft.com/+++ press the **Enter** button
+    URL: +++https://app.fabric.microsoft.com/+++ press the **Enter** button
     and sign in with your credentials
 
     |   |   |
     |---|---|
     | Username | +++@lab.CloudPortalCredential(User1).Username+++ |
-    | Password | +++@lab.CloudPortalCredential(User1).Password+++ |
+    | TAP | +++@lab.CloudPortalCredential(User1).AccessToken+++ |
 
-2.  Fabric home page, select **+New workspace** tile.
+2.  Fabric home page, select **+New workspace** tile.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image7.png)
+    ![A screenshot of a computer Description automatically
+generated](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image7.png)
 
-3.  In the **Create a workspace** pane that appears on the right side,
-    enter the following details, and click on the **Apply** button.
+3.  In the **Create a workspace** pane that appears on the right side,
+    enter the following details, and click on the **Apply** button.
 
-| Property | Value |
-|---------|-------|
-| Name | `+++Fabric agent@lab.LabInstance.Id+++` **(XXXXX can be Lab instance ID)** |
-| Advanced | Under **License mode**, select **Fabric** |
-| Default storage format | Small dataset storage format |
-| Template apps | Check **Develop template apps** |
+    | Property | Value |
+    |---------|-------|
+    | Name | +++Fabric agent@lab.LabInstance.Id+++  |
+    | Advanced | Under **License mode**, select **Fabric** |
+    | Default storage format | Small dataset storage format |
+    | Template apps | Check **Develop template apps** |
 
-> ![](./media/image8.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image8.png)
 
-Note: To find your lab instant ID, select 'Help' and copy the instant
-ID.
+    >[!Note] To find your lab instant ID, select 'Help' and copy the instant
+    ID.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image9.png)
->
-> ![](./media/image10.png)
+    ![A screenshot of a computer Description automatically
+generated](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image9.png)
+
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image10.png)
 
 4.  Wait for the deployment to complete. It takes 2-3 minutes to
     complete.
 
-> ![](./media/image11.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image11.png)
 
 ## Task 2: Retrieve your Fabric workspace ID
 
 You will need your workspace ID to pass as a parameter when building the
 solution.
 
-1.  Look at the URL — the workspace ID is the GUID that appears
-    after /groups/:
+1.  Look at the URL - the workspace ID is the GUID that appears
+    after /groups/:
 
 2.  Copy the **Workspace ID** from the URL (e.g.,
     https://app.fabric.microsoft.com/groups/{workspace-id}/...) and save
-    it in **Notepad** for later use![](./media/image12.png)
+    it in **Notepad** for later use
+
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image12.png)
 
 ## Task 3: Open development environment
 
 1.  Open your browser, navigate to the address bar, type or paste the
     following URL: +++https://github.com/technofocus-pte/agnticapp-for-unified-data+++
 
-![](./media/image13.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image13.png)
 
-2.  Click on **fork** to fork the repo. Give unique name to the repo and
-    click on **Create repo** button.
+2.  Click on **fork** to fork the repo. Give unique name to the repo and
+    click on **Create repo** button.
 
-![](./media/image14.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image14.png)
 
-![](./media/image15.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image15.png)
 
-3.  Click on **Code -\> Codespaces -\> Create Codespace on main**
+3.  Click on **Code -\> Codespaces -\> Create Codespace on main**
 
-![](./media/image16.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image16.png)
 
 4.  Wait for the Codespaces environment to setup. It takes few minutes
     to setup completely
 
-![](./media/image17.png) ![](./media/image18.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image17.png)     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image18.png)
 
-![](./media/image19.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image19.png)
 
 ## Task 4: Provision services and deploy the application to Azure and Fabric
 
 1.  Run the following command on the Terminal. It generates the code to
     copy. Copy the code and press Enter.
 
-+++azd auth login+++
+    +++azd auth login+++
 
-> ![](./media/image20.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image20.png)
 
 2.  Default browser opens to enter the generated code to verify. Enter
-    the code and click **Next**.
+    the code and click **Next**.
 
-![](./media/image21.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image21.png)
 
-![](./media/image22.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image22.png)
 
-> ![](./media/image23.png)
->
-> ![](./media/image24.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image23.png)
+
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image24.png)
 
 3.  Login to Azure:
 
-+++az login+++
+    +++az login+++
 
-![](./media/image25.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image25.png)
 
 4.  Default browser opens to enter the generated code to verify. Enter
-    the code and click **Next**.
+    the code and click **Next**.
 
-> ![](./media/image26.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image26.png)
 
 5.  Select your azure subscription
 
-> ![](./media/image27.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image27.png)
 
 6.  Register the Microsoft Cognitive Services resource provider
     (required if not already registered on your subscription)
 
-+++az provider register --namespace Microsoft.CognitiveServices+++
+    +++az provider register --namespace Microsoft.CognitiveServices+++
 
-> ![](./media/image28.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image28.png)
 
 7.  Provision and deploy all the resources:
 
-+++azd up+++
+    +++azd up+++
 
-![](./media/image29.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image29.png)
 
 8.  Select below values.
 
-- **To create an environment for Azure resources**,
-  enter **+++Fabricagent@lab.LabInstance.Id**+++
+    - **To create an environment for Azure resources**,
+      enter +++Fabricagent@lab.LabInstance.Id+++
+    
+    - **Select an Azure Subscription to
+      use** : **@lab.CloudSubscription.Name**
+    
+    - **azureAiServiceLocation**: **@lab.CloudResourceGroup(ResourceGroup1).Location**
+    
+    - **'Location' infrastructure
+      parameter:** **@lab.CloudResourceGroup(ResourceGroup1).Location**
+    
+    - **Resource Group:** **@lab.CloudResourceGroup(ResourceGroup1).Name**
 
-- **Select an Azure Subscription to
-  use** : **@lab.CloudSubscription.Name**
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image30.png)
 
-- **azureAiServiceLocation**: **Sweden Central**
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image31.png)
 
-- **‘Location' infrastructure
-  parameter:** **@lab.CloudResourceGroup(ResourceGroup1).Location**
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image32.png)
 
-- **Resource Group:** **@lab.CloudResourceGroup(ResourceGroup1).Name**
-
-![](./media/image30.png)
-
-![](./media/image31.png)
-
-![](./media/image32.png)
-
-9.  This deployment will take *7-10 minutes* to provision the resources
+9.  This deployment will take *7-10 minutes* to provision the resources
     in your account and set up the solution with sample data.
 
 10. Now the deployment is complete
 
-![](./media/image33.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image33.png)
 
 11. Create and activate a virtual environment
 
-> +++python -m venv .venv+++
+    +++python -m venv .venv+++
 
-![](./media/image34.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image34.png)
 
 12. Use the top-left **menu icon** in **Visual Studio Code**, then
     navigate to **Terminal → New Terminal** to open a new terminal
     window in the workspace
 
-![](./media/image35.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image35.png)
 
-![](./media/image36.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image36.png)
 
 13. Run the following command in the terminal to install the required
     Python dependencies
 
-+++pip install uv && uv pip install -r scripts/requirements.txt+++
+    +++pip install uv && uv venv .venv && source .venv/bin/activate && uv pip install -r scripts/requirements.txt+++
 
-![](./media/image37.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image37.png)
 
-![](./media/image38.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image38.png)
 
 14. Run the following command on the Terminal. It generates the code to
     copy. Copy the code and press Enter.
 
-+++az login+++
+    +++az login+++
 
-![](./media/image39.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image39.png)
 
-![](./media/image40.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image40.png)
 
-![](./media/image41.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image41.png)
 
 15. Select your **Azure subscription** from the list to continue the
     setup process.
 
-![](./media/image42.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image42.png)
 
 16. Run the bash script from the output of the azd deployment. Replace
     the with your Fabric workspace Id created in the previous steps. The
     script will look like the following:
-```
-python scripts/00_build_solution.py --from 02 --fabric-workspace-id <your-workspace-id>
-```
+
+    ```
+    python scripts/00_build_solution.py --from 02 --fabric-workspace-id <your-workspace-id>
+    ```
 
 
-![](./media/image43.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image43.png)
 
-17. Press Enter to start create resources
+18. Press Enter to start create resources
 
-![](./media/image44.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image44.png)
 
-![](./media/image45.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image45.png)
 
-![](./media/image46.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image46.png)
 
 ## Task 5: Review the Fabric Lakehouse and Data
 
-1.  Go to your +++**https://app.fabric.microsoft.com/**+++ workspace
+1.  Go to your +++https://app.fabric.microsoft.com/+++ workspace
 
 2.  Make sure resource got deployed successfully
 
-> ![](./media/image47.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image47.png)
 
 3.  Click on the **Lakehouse** to verify that the data has been
     successfully loaded.
 
-![](./media/image48.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image48.png)
 
-![](./media/image49.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image49.png)
 
 4.  Return to the **Codespace** to test the agent.
 
@@ -387,104 +390,105 @@ python scripts/00_build_solution.py --from 02 --fabric-workspace-id <your-worksp
 
 1.  To test the agent, run the following command in the terminal.
 
-+++python scripts/08_test_agent.py+++
+    +++python scripts/08_test_agent.py+++
 
-> ![](./media/image50.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image50.png)
 
-2.  Enter the sample questions +++**What is the average score from
-    inspections?**+++
+2.  Enter the sample questions +++What is the average score from
+    inspections?+++
 
-> ![](./media/image51.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image51.png)
 
-**+++What constitutes a failed inspection?+++**
+    +++What constitutes a failed inspection?+++
 
-![](./media/image52.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image52.png)
 
-![](./media/image53.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image53.png)
 
-+++Do any inspections violate quality control standards in our Inspection Procedures?+++
+	+++Do any inspections violate quality control standards in our Inspection Procedures?+++
 
-![](./media/image54.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image54.png)
 
-![](./media/image55.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image55.png)
 
-3.  Press **Ctrl+C** to cancel the process.
+3.  Press **Ctrl+C** to cancel the process.
 
-![](./media/image56.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image56.png)
 
 ## Task 7: Create a Fabric data agent
 
-1.  Go to your +++https://app.fabric.microsoft.com/+++ Microsoft Fabric
+1.  Go to your +++https://app.fabric.microsoft.com/+++ Microsoft Fabric
     workspace
 
 2.  Select "New item" → Search for "Data Agent" → select Data
     agent
-    ![](./media/image57.png)
 
-4.  Provide a name as <FabricDataAgent@lab.LabInstance.Id> and click
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image57.png)
+
+4.  Provide the name +++FabricDataAgent@lab.LabInstance.Id+++ and click
     **Create**
 
-> ![](./media/image58.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image58.png)
 
 4.  Select **Add data source** to configure a new data source.
-    ![](./media/image59.png)
 
-5.  Select your Ontology resource for this workshop
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image59.png)
 
-> ![](./media/image60.png)
->
-> ![](./media/image61.png)
+6.  Select your Ontology resource for this workshop
+
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image60.png)
+
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image61.png)
 
 6.  Click **Agent instructions** from top menu.
 
-> ![](./media/image62.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image62.png)
 
 7.  Add the below agent instructions:
 
- +++You are a helpful assistant that can answer user questions using data. Support group by in GQL+++
+     +++You are a helpful assistant that can answer user questions using data. Support group by in GQL+++
 
-> ![](./media/image63.png)
->
-> ![](./media/image64.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image63.png)
+
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image64.png)
 
 8.  Click Publish from the top menu and select Publish.
 
-> ![](./media/image65.png)
->
-> ![](./media/image66.png)
->
-> ![](./media/image67.png)
->
-> Note: The Ontology set up may take up to 15 minutes so retry after
-> some time if you don't see good responses.
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image65.png)
+
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image66.png)
+
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image67.png)
+
+    >[!Note] The Ontology set up may take up to 15 minutes so retry after some time if you don't see good responses.
 
 5.  To test the agent, run the application and enter the sample
     questions to verify the responses.
 
-+++How many tickets are high priority+++
+    +++How many tickets are high priority+++
 
-![](./media/image68.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image68.png)
 
-![](./media/image69.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image69.png)
 
-+++What is the average score from inspections?+++
+    +++What is the average score from inspections?+++
 
-![](./media/image70.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image70.png)
 
-![](./media/image71.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image71.png)
 
-![](./media/image72.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image72.png)
+    
+    +++Show tickets grouped by status+++
 
-+++**Show tickets grouped by status**+++
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image73.png)
 
-![](./media/image73.png)
-
-![](./media/image74.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image74.png)
 
 6.  Save the **Workspace ID** and **AISkills ID** in **Notepad** for
     later use
 
-![](./media/image75.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image75.png)
 
 7.  Return to the **Codespace** to deploy and launch the application.
 
@@ -493,237 +497,239 @@ python scripts/00_build_solution.py --from 02 --fabric-workspace-id <your-worksp
 1.  Run the following command to set the **AZURE_ENV_DEPLOY_APP**
     environment variable to **true** before deployment.
 
-+++ azd env set AZURE_ENV_DEPLOY_APP true+++
+    +++azd env set AZURE_ENV_DEPLOY_APP true+++
 
-![](./media/image76.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image76.png)
 
 2.  Run azd up - This will provision Azure resources
 
-+++azd up+++
+    +++azd up+++
 
-![](./media/image77.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image77.png)
 
 3.  Once the deployment has completed successfully, copy the Web app URL
 
-![](./media/image78.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image78.png)
 
 4.  Run the following command to set up app permissions
 
- +++**python scripts/00_build_solution.py --from 09**+++
+    +++python scripts/00_build_solution.py --from 09+++
 
- ![](./media/image79.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image79.png)
 
 5.  Press Enter to start configuration
 
-> ![](./media/image80.png)
->
-> ![](./media/image81.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image80.png)
+
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image81.png)
 
 6.  Click on the app URL
 
-> ![](./media/image82.png)
->
-> ![](./media/image83.png)
->
-> ![](./media/image84.png)
->
-> **Sample Questions**
->
-> To help you get started, here are some **Sample Questions** you can
-> ask in the app:
->
-> For Retail sales analysis use case:
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image82.png)
 
- +++Show total revenue by year for last 5 years+++.
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image83.png)
 
-> ![](./media/image85.png)
->
-> ![](./media/image86.png)
->
-> ![](./media/image87.png)
->
-> ![](./media/image88.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image84.png)
+
+    > **Sample Questions**
+    >
+    > To help you get started, here are some **Sample Questions** you can
+    > ask in the app:
+    >
+    > For Retail sales analysis use case:
+
+     +++Show total revenue by year for last 5 years+++.
+
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image85.png)
+
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image86.png)
+
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image87.png)
+
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image88.png)
+
+    > [!Alert] You may not see a response due to the populated date, please continue with the rest of the lab.
 
 ## Task 9: Verify Azure Resources and Review Fabric Lakehouse Data 
 
-1.  Open a browser go to +++https://portal.azure.com+++ and sign in with
+1.  Open a browser go to +++https://portal.azure.com+++ and sign in with
     your cloud slice account below.
 
-2.  Select **Resource groups**
+2.  Select **Resource groups**
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image89.png)
+    ![A screenshot of a computer AI-generated content may be
+incorrect.](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image89.png)
 
-3.  Click on your assigned **Resource group**.
+3.  Click on your assigned **Resource group**.
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image90.png)
+    ![A screenshot of a computer AI-generated content may be
+incorrect.](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image90.png)
 
 4.  Make sure the below resource got deployed successfully
 
-- Foundry
+    - Foundry
+    
+    - Foundry project
+    
+    - Application Insights
+    
+    - Search service
+    
+    - Azure Storage account
+    
+    - App Service
+    
+    - Azure Cosmos DB account
 
-- Foundry project
-
-- Application Insights
-
-- Search service
-
-- Azure Storage account
-
-- App Service
-
-- Azure Cosmos DB account
-
-![](./media/image91.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image91.png)
 
 ## Task 10: Consume Fabric data agent from Microsoft Foundry Services
 
 1.  Select **Foundry**
 
-![](./media/image92.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image92.png)
 
-2.  On the Overview pane, click on **Go to Foundry portal**. This will
+2.  On the Overview pane, click on **Go to Foundry portal**. This will
     navigate you to the Microsoft Foundry portal.
 
-![](./media/image93.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image93.png)
 
-![](./media/image94.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image94.png)
 
-Once navigated to Foundry Portal, select **Agents** from the left menu
-you will already see an agent **pre created**. If not created, then
-please click on the **+ New agent** option to get it created.
+    Once navigated to Foundry Portal, select **Agents** from the left menu
+    you will already see an agent **pre created**. If not created, then
+    please click on the **+ New agent** option to get it created.
 
-![](./media/image95.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image95.png)
 
-![](./media/image96.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image96.png)
 
-3.  Select the newly created **agent**, and a configuration pane will be
-    opened on the right. Enter the agent name as +++**Fabric Agent**+++
+3.  Select the newly created **agent**, and a configuration pane will be
+    opened on the right. Enter the agent name as +++Fabric Agent+++
 
-![](./media/image97.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image97.png)
 
 4.  In the same agent configuration pane, scroll down and click on **+
     Add** for **Knowledge** parameter.
 
-![](./media/image98.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image98.png)
 
-5.  In the **Add knowledge** pane, select **Microsoft Fabric** 
+5.  In the **Add knowledge** pane, select **Microsoft Fabric** 
 
-![](./media/image99.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image99.png)
 
 6.  Click on **+ Create connection**
 
-![](./media/image100.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image100.png)
 
 7.  Enter the custom keys, such as the **Workspace ID** and **AISkills
     ID**, that you saved in **Task 7\> Step 6**.Provide the connection
     name as **Fabric-aiskills**, and click **Connect.**
 
-![](./media/image101.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image101.png)
 
 8.  Enter Instructions
 
-```
-You are a data assistant that analyzes inspection data stored in Microsoft Fabric.
+    ```
+    You are a data assistant that analyzes inspection data stored in Microsoft Fabric.
+    
+    Use the Fabric Lakehouse dataset to answer questions about inspection results and scores. The dataset includes the following columns:
+    - inspection_id: Unique identifier for each inspection
+    - ticket_id: Identifier associated with the inspection ticket
+    - result: Inspection outcome (Pass or Fail)
+    - score: Numeric score assigned to the inspection
+    
+    You can analyze and summarize the data to provide insights such as:
+    - Total number of inspections
+    - Number of passed and failed inspections
+    - Average, highest, and lowest inspection scores
+    - Distribution of inspection results
+    - Score trends across inspections or tickets
+    
+    When responding:
+    - Use the Fabric data source to retrieve accurate information.
+    - Provide clear summaries and insights based on the inspection results.
+    - When appropriate, suggest visualizations such as bar charts or pie charts to show pass vs fail distribution or score comparisons.
+    - Ensure answers are concise, accurate, and based only on the available dataset.
+    ```
 
-Use the Fabric Lakehouse dataset to answer questions about inspection results and scores. The dataset includes the following columns:
-- inspection_id: Unique identifier for each inspection
-- ticket_id: Identifier associated with the inspection ticket
-- result: Inspection outcome (Pass or Fail)
-- score: Numeric score assigned to the inspection
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image102.png)
 
-You can analyze and summarize the data to provide insights such as:
-- Total number of inspections
-- Number of passed and failed inspections
-- Average, highest, and lowest inspection scores
-- Distribution of inspection results
-- Score trends across inspections or tickets
+9.  Select, **Agents** from left menu, and then choose the **Fabric
+    Agent** agent and click on **Try in playground**.
 
-When responding:
-- Use the Fabric data source to retrieve accurate information.
-- Provide clear summaries and insights based on the inspection results.
-- When appropriate, suggest visualizations such as bar charts or pie charts to show pass vs fail distribution or score comparisons.
-- Ensure answers are concise, accurate, and based only on the available dataset.
-```
-
-![](./media/image102.png)
-
-9.  Select, **Agents** from left menu, and then choose the **Fabric
-    Agent** agent and click on **Try in playground**.
-
-![](./media/image103.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image103.png)
 
 10. A chat panel will open where you can enter your prompts. The agent
     will now respond using the documents and datasets you've connected.
 
-Sample prompts -
+    Sample prompts -
+        
+    +++What constitutes a failed inspection?+++
 
-**+++What constitutes a failed inspection?+++**
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image104.png)
 
-![](./media/image104.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image105.png)
 
-![](./media/image105.png)
+    +++What is the total number of tickets in the system?+++
 
-+++**What is the total number of tickets in the system?**+++
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image106.png)
 
-![](./media/image106.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image107.png)
 
-![](./media/image107.png)
+    +++Do any inspections violate quality control standards in our
+    Inspection Procedures?+++
 
-+++**Do any inspections violate quality control standards in our
-Inspection Procedures?+++**
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image108.png)
 
-![](./media/image108.png)
-
-![](./media/image109.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image109.png)
 
 ## Task 11: Delete the Resources
 
-1.  To delete resources , type **Resource groups** in the Azure portal
-    search bar, navigate and click on **Resource
-    groups** under **Services**.
+1.  To delete resources , type **Resource groups** in the Azure portal
+    search bar, navigate and click on **Resource
+    groups** under **Services**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image110.png)
+    ![A screenshot of a computer Description automatically
+generated](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image110.png)
 
 2.  In the Resource groups page, select your resource group.
 
 3.  On the **Resource Group** home page, select all resources except
     **Fabric Capacity**, and then click **Delete**.
 
-![](./media/image111.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image111.png)
 
-4.  In the **Delete Resources** pane that appears on the right side,
-    navigate to **Enter “delete” to confirm deletion** field, then click
-    on the **Delete** button
+4.  In the **Delete Resources** pane that appears on the right side,
+    navigate to **Enter "delete" to confirm deletion** field, then click
+    on the **Delete** button
 
-![](./media/image112.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image112.png)
 
-![](./media/image113.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image113.png)
 
-9.  Go to your +++ https://app.fabric.microsoft.com/+++ Microsoft Fabric
+9.  Go to your +++https://app.fabric.microsoft.com/+++ Microsoft Fabric
     workspace
 
-10. Select the **...** option under the workspace name and
-    select **Workspace settings**.
+10. Select the **...** option under the workspace name and
+    select **Workspace settings**.
 
-> ![](./media/image114.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image114.png)
 
-11. Select **General** and **Remove this workspace.**
+11. Select **General** and **Remove this workspace.**
 
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image115.png)
+    ![A screenshot of a computer AI-generated content may be
+incorrect.](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image115.png)
 
-12. Click on **Delete** in the warning that pops up.
+12. Click on **Delete** in the warning that pops up.
 
-> ![](./media/image116.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image116.png)
 
 13. Wait for a notification that the Workspace has been deleted, before
     proceeding to the next lab.
 
-> ![](./media/image117.png)
->
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image117.png)
+
 > **Summary**
 >
 > This use case demonstrates how organizations can build **intelligent,
@@ -736,17 +742,16 @@ generated](./media/image110.png)
 > with enterprise datasets using **natural language queries** instead of
 > writing complex SQL or manually analyzing multiple data sources. The
 > AI agent retrieves relevant data, performs analysis, and generates
-> insights such as averages, trends, summaries, and grouped results.
+insights such as averages, trends, summaries, and grouped results.
 >
 > The solution also provisions supporting Azure services, including AI
 > services, search, storage, and web applications, enabling a complete
 > **end-to-end agentic application architecture**. This allows
 > organizations to combine **structured enterprise data with AI
 > capabilities** to deliver conversational analytics and automated
-> insights.
+insights.
 >
 > Overall, the use case highlights how **agentic AI applications** built
 > on a unified data platform can simplify data access, accelerate
 > analytics, and support faster, data-driven decision-making for both
 > technical and non-technical users.
-

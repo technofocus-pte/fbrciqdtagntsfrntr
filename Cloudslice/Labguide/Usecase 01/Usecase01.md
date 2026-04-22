@@ -14,10 +14,10 @@ In the scenario, a fictional company called **Lakeshore Retail**, which
 sells ice cream at multiple locations. Using sample data, the tutorial
 shows how to set up your environment and begin building an ontology that
 captures business concepts such as *Store*, *Products*, and *SaleEvent*.
-You’ll also connect streaming data (like freezer temperatures from
+You'll also connect streaming data (like freezer temperatures from
 Eventhouse) to these concepts so the ontology can support **cross-domain
-reasoning and queries**, for instance: *“Which stores have lower ice
-cream sales when freezer temperature rises above –18 °C?”*
+reasoning and queries**, for instance: *"Which stores have lower ice
+cream sales when freezer temperature rises above -18 °C?"*
 
 **Objectives**
 
@@ -123,7 +123,7 @@ incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs
     ![A screenshot of a computer AI-generated content may be
 incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image11.png)
 
-3.  Browse to **C:\Lab Files\Cloud_slice\LabFiles\Lab1** on your VM, then
+3.  Browse to **C:\LabFiles\Lab1** on your VM, then
     select **DimProducts.csv, DimStore.csv, FactSale.csv** and
     **Freezer.csv** file and click on **Open** button.
 
@@ -234,8 +234,8 @@ incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs
 5.  On the lower ribbon of your **KQL database**, click on **Get data**,
     then select **Local file** to upload files from your local system
     into the database.
-    ![A screenshot of a computer AI-generated content
-    may be incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image34.png)
+    
+    ![A screenshot of a computer AI-generated content may be incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image34.png)
 
 7.  Select the target option to ingest data into a new table, click +
     New table, and enter a table name as +++**FreezerTelemetry**+++.
@@ -252,16 +252,15 @@ incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs
     ![A screenshot of a computer AI-generated content may be
 incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image37.png)
 
-9.  Browse to **C:\Lab Files\Cloud_slice\LabFiles\Lab1** on your VM, then
-    select ***FreezerTelemetry*.csv** file and click on **Open** button.
+9.  Browse to **C:\LabFiles\Lab1** on your VM, then
+    select **FreezerTelemetry.csv** file and click on **Open** button.
 
     ![A screenshot of a computer AI-generated content may be
 incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image38.png)
 
 10.  Click on **Next** button
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image39.png)
+     ![A screenshot of a computer AI-generated content may be incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image39.png)
 
 11. Then click on the **Finish** button.
 
@@ -294,7 +293,7 @@ incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs
     ![A screenshot of a computer AI-generated content may be
 incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image44.png)
 
-2.  Enter +++**RetailSalesOntology**+++ for the **Name** of your
+2.  Enter +++RetailSalesOntology+++ for the **Name** of your
     ontology and select **Create**.
 
     ![A screenshot of a computer AI-generated content may be
@@ -327,7 +326,7 @@ the ***IQ_Lakehouse*** lakehouse tables.
     ![A screenshot of a computer AI-generated content may be
 incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image47.png)
 
-2.  Enter +++**Store**+++for the name of your entity type and
+2.  Enter +++Store+++ for the name of your entity type and
     select **Add Entity Type**.
 
     ![A screenshot of a computer AI-generated content may be
@@ -402,7 +401,7 @@ incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs
 	|  |   |   |
 	|---|---|---|
 	|Entity type name|	Source table in IQ_Lakehouse	|Entity type key|
-	|+++Products+++|  |dimproducts	|ProductId|
+	|+++Products+++|  dimproducts	| ProductId|
 	|+++SaleEvent+++	|factsales	|SaleId|
 
 
@@ -493,16 +492,16 @@ incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs
     select **Create**.
 
     1.  **Source data**: Select your tutorial workspace,
-        the **IQ_Lakehouse**  lakehouse, and the **factsales** table.
+        the **Fabric IQ Ontology_Lakehouse**  lakehouse, and the **factsales** table.
         This table in the source data can
-        link **Store **and **SaleEvent** entities together, because it
+        link **Store** and **SaleEvent** entities together, because it
         contains identifying information for both entity types. Each row
         in this table references a store and a sale event by ID.
 
     1.  **Source entity type \Source column**: Select **StoreId**.
         This setting specifies the column in the relationship source
-        data table (*factsales \* StoreId) whose values match the key
-        property defined on the *Store* entity (*dimstore \* StoreId).
+        data table (*factsales* *StoreId*) whose values match the key
+        property defined on the *Store* entity (*dimstore* *StoreId*).
         In the tutorial data, the column name is the same in both
         tables.
 
@@ -519,9 +518,9 @@ incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs
     ![A screenshot of a computer AI-generated content may be
 incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image79.png)
 
-Now the first relationship is created, and bound to data in your
-source table. Continue to the next section to create another
-relationship type.
+	Now the first relationship is created, and bound to data in your
+	source table. Continue to the next section to create another
+	relationship type.
 
 ### Products soldIn SaleEvent
 
@@ -560,7 +559,7 @@ incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs
 # Exercise 3: Enrich the ontology with additional data
 
 In this exercise, you enrich your ontology by adding a
-new ***Freezer* **entity type. This entity type adds more domain context
+new ***Freezer*** entity type. This entity type adds more domain context
 and introduces properties for time series data, which reflects live
 operational information.
 
@@ -662,7 +661,7 @@ incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs
 
 ## Task 3: Bind time series data to additional properties
 
-Next, add time series data on the **Freezer **entity, by creating new
+Next, add time series data on the **Freezer** entity, by creating new
 properties and binding time series data to them in a single data binding
 operation.
 
@@ -698,7 +697,7 @@ incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs
 incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image100.png)
 
 3.  Under **Bind your properties \Timeseries**, the time series
-    columns from the **FreezerTelemetry**table populate automatically
+    columns from the **FreezerTelemetry** table populate automatically
     with matching property names for the *Freezer* entity type. Keep the
     default selections.
 
@@ -707,8 +706,8 @@ incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs
     ![A screenshot of a computer AI-generated content may be
 incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image101.png)
 
-5.  Now the ***Freezer* entity** has two data bindings: one with
-    **static** data from the ***freezer* lakehouse** table and one with
+5.  Now the **Freezer entity** has two data bindings: one with
+    **static** data from the **freezer lakehouse** table and one with
     streaming data from the **FreezerTelemetry** eventhouse table.
 
     ![A screenshot of a computer AI-generated content may be
@@ -755,8 +754,8 @@ incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs
 
 2.  **Source entity type \Source column**: Select **StoreId**. This
     setting specifies the column in the relationship source data table
-    (*freezer \* StoreId) whose values match the key property defined
-    on the *Store* entity (*dimstore \* StoreId). In the tutorial data,
+    (\freezer  \StoreId) whose values match the key property defined
+    on the **Store** entity (\dimstore \StoreId). In the tutorial data,
     the column name is the same in both tables.
 
 3.  **Target entity type \Source column**: Select FreezerId. This
@@ -848,7 +847,7 @@ use to visualize your ontology in a graph of nodes and edges.
 incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image116.png)
 
 2.  In the **graph**, observe the details of the relationships to
-    the **SaleEvent** entity type from **Store **and ***Products*.**
+    the **SaleEvent** entity type from **Store** and **Products**.
 
     ![A screenshot of a computer AI-generated content may be
 incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image117.png)
@@ -863,8 +862,8 @@ incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs
 incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image119.png)
 
 4.  In the graph, observe the relationship
-    between **Store** and ***SaleEvent**, and the relationship
-    between **Store** and ***Freezer**.
+    between **Store** and **SaleEvent**, and the relationship
+    between **Store** and **Freezer**.
 
     ![A screenshot of a computer AI-generated content may be
 incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image120.png)
@@ -888,8 +887,8 @@ incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs
     ![A screenshot of a computer AI-generated content may be
 incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image123.png)
 
-	First, craft this query: *Show all freezers that are operated in the
-	Paris store.
+	First, craft this query: +++Show all freezers that are operated in the
+	Paris store.+++
 
 2.  In the **Store** entity's relationship graph, select **Add filter \
     Store \StoreId** from the query builder ribbon.
@@ -980,7 +979,7 @@ the ontology's definitions and bindings.
 Follow these steps to create a new data agent that connects to your
 ontology (preview) item.
 
-1.  Now, click on **Fabric IQ Ontology XX** on the left-sided navigation
+1.  Now, click on **Fabric IQ Ontology @lab.labinstance.id** on the left-sided navigation
     pane.
 
     ![A screenshot of a computer AI-generated content may be
@@ -1020,18 +1019,24 @@ incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs
 
 Next, add a custom instruction to the agent.
 
-1.  Select **Agent instructions** from the menu ribbon.
+1. Select **Add Data** on the left panel.
+
+2. Select the **RetailSalesOntology**.
+
+1. Select **Data Source**, **RetailSalesOntology** and select **add**.
+
+3. **Agent instructions** from the menu ribbon.
 
     ![A screenshot of a computer AI-generated content may be
 incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image144.png)
 
-2.  At the bottom of the input box, add Support group by in GQL. This
+4.  At the bottom of the input box, add Support group by in GQL. This
     instruction enables better aggregation across ontology data.
 
     ![A screenshot of a computer AI-generated content may be
 incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image145.png)
 
-3.  The instruction is applied automatically. Optionally, close
+5.  The instruction is applied automatically. Optionally, close
     the **Agent instructions** tab.
 
     ![A screenshot of a computer AI-generated content may be
@@ -1079,7 +1084,7 @@ own.
 
 **Task 7: Clean up resources**
 
-1.  Select your workspace, the **Fabric IQ OntologyXX** from the
+1.  Select your workspace, the **Fabric IQ Ontology@lab.LabInstance.Id** from the
     left-hand navigation menu. It opens the workspace item view.
 
     ![A screenshot of a computer AI-generated content may be
@@ -1109,8 +1114,8 @@ structured lakehouse data with streaming telemetry data, the ontology
 provides a unified, business-friendly view of enterprise data.
 
 Through entity definitions, data bindings, and relationship modeling,
-users can analyze how operational signals—such as freezer temperature or
-humidity—relate to business outcomes like sales and revenue. The use
+users can analyze how operational signals-such as freezer temperature or
+humidity-relate to business outcomes like sales and revenue. The use
 case also highlights how ontologies power graph exploration and natural
 language queries through Fabric data agents, enabling deeper insights
 without requiring users to understand underlying tables or schemas.
@@ -1118,5 +1123,3 @@ without requiring users to understand underlying tables or schemas.
 Overall, this use case shows how Fabric IQ Ontology helps bridge
 operational data and analytics, supporting smarter decision-making
 across domains.
-
-
