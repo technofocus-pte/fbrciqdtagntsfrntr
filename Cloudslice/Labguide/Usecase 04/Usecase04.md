@@ -277,13 +277,15 @@ solution.
 
     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image28.png)
 
-7.  Provision and deploy all the resources:
+	>[!alert] Inside the **Infra** folder, go to line 127 on the **main.bicep** file and switch the @labInstanceId string to @lab.LabInstance.Id.
+	
+8.  Provision and deploy all the resources:
 
     +++azd up+++
 
     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image29.png)
 
-8.  Select below values.
+9.  Select below values.
 
     - **To create an environment for Azure resources**,
       enter +++Fabricagent@lab.LabInstance.Id+++
@@ -304,20 +306,20 @@ solution.
 
     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image32.png)
 
-9.  This deployment will take *7-10 minutes* to provision the resources
+10.  This deployment will take *7-10 minutes* to provision the resources
     in your account and set up the solution with sample data.
 
-10. Now the deployment is complete
+11. Now the deployment is complete
 
     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image33.png)
 
-11. Create and activate a virtual environment
+12. Create and activate a virtual environment
 
     +++python -m venv .venv+++
 
     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image34.png)
 
-12. Use the top-left **menu icon** in **Visual Studio Code**, then
+13. Use the top-left **menu icon** in **Visual Studio Code**, then
     navigate to **Terminal → New Terminal** to open a new terminal
     window in the workspace
 
@@ -325,7 +327,7 @@ solution.
 
     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image36.png)
 
-13. Run the following command in the terminal to install the required
+14. Run the following command in the terminal to install the required
     Python dependencies
 
     +++pip install uv && uv venv .venv && source .venv/bin/activate && uv pip install -r scripts/requirements.txt+++
@@ -334,7 +336,7 @@ solution.
 
     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image38.png)
 
-14. Run the following command on the Terminal. It generates the code to
+15. Run the following command on the Terminal. It generates the code to
     copy. Copy the code and press Enter.
 
     +++az login+++
@@ -345,12 +347,12 @@ solution.
 
     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image41.png)
 
-15. Select your **Azure subscription** from the list to continue the
+16. Select your **Azure subscription** from the list to continue the
     setup process.
 
     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image42.png)
 
-16. Run the bash script from the output of the azd deployment. Replace
+17. Run the bash script from the output of the azd deployment. Replace
     the with your Fabric workspace Id created in the previous steps. The
     script will look like the following:
 
@@ -394,8 +396,7 @@ solution.
 
     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image50.png)
 
-2.  Enter the sample questions +++What is the average score from
-    inspections?+++
+2.  Enter the sample questions +++What is the average score from inspections?+++
 
     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image51.png)
 
