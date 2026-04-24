@@ -295,7 +295,7 @@ solution.
     - **Select an Azure Subscription to
       use** : **@lab.CloudSubscription.Name**
     
-    - **azureAiServiceLocation**: **@lab.CloudResourceGroup(ResourceGroup1).Location**
+    - **azureAiServiceLocation**: **Sweden Central**
     
     - **'Location' infrastructure
       parameter:** **@lab.CloudResourceGroup(ResourceGroup1).Location**
