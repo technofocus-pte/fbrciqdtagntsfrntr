@@ -231,7 +231,9 @@ solution.
 4.  Wait for the Codespaces environment to setup. It takes few minutes
     to setup completely
 
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image17.png)     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image18.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image17.png)
+
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image18.png)
 
     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image19.png)
 
@@ -277,7 +279,7 @@ solution.
 
     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image28.png)
 
-	>[!alert] Inside the **Infra** folder, go to line 127 on the **main.bicep** file and switch the @labInstanceId string to @lab.LabInstance.Id.
+	>[!alert] Navigate to the **Infra** folder on the left hand side, open the **main.bicep** file on **line 127** and switch the *Lab Instance ID* string to +++@lab.LabInstance.Id+++.
 	
 8.  Provision and deploy all the resources:
 
@@ -288,15 +290,13 @@ solution.
 9.  Select below values.
 
     - **To create an environment for Azure resources**,
-      enter +++Fabricagent@lab.LabInstance.Id+++
+      enter +++env@lab.LabInstance.Id+++
     
     - **Select an Azure Subscription to
       use** : **@lab.CloudSubscription.Name**
     
-    - **azureAiServiceLocation**: **@lab.CloudResourceGroup(ResourceGroup1).Location**
-    
     - **'Location' infrastructure
-      parameter:** **@lab.CloudResourceGroup(ResourceGroup1).Location**
+      parameter:** **Sweden Central**
     
     - **Resource Group:** **@lab.CloudResourceGroup(ResourceGroup1).Name**
 
