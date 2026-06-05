@@ -489,9 +489,9 @@ contextual connections in your data.
 
 - **Relationship type name**: +++from+++
 
-- **Source entity type**: *SaleEvent*
+- **Source entity type**: **SaleEvent**
 
-- **Target entity type**: *Store*
+- **Target entity type**: **Store**
 
 > ![](./media/image88.png)
 >
@@ -507,7 +507,7 @@ contextual connections in your data.
 - **Relationship type**: Sets details of the relationship type.
 
 - **Target entity type**: Lists details of the target entity
-  (**Store **in this case).
+  (**Store**in this case).
 
 > ![](./media/image90.png)
 >
@@ -540,8 +540,7 @@ contextual connections in your data.
 
 > ![](./media/image93.png)
 
-**  
- Important:** Make sure to select the correct **Matched** columns that
+**Important:** Make sure to select the correct **Matched** columns that
 match the entity type key properties.
 
 6.  **Save** the relationship type. Confirm that the relationship type
@@ -569,7 +568,9 @@ match the entity type key properties.
     to create a second relationship from the **SaleEvent **entity type
     that has the details described in the following table.
 
-[TABLE]
+| Relationship Type Name | Origin Entity Type | Target Entity Type | Mapping Table | Matched SaleEvent: SaleId | Matched Products: ProductId |
+|------------------------|-------------------|-------------------|---------------|--------------------------|----------------------------|
+| `sold` | `SaleEvent` | `Products` | `factsales` | `SaleId` | `ProductId` |
 
 ![](./media/image98.png)
 
@@ -630,7 +631,12 @@ Expand **Manage property bindings** and select **Add properties**.
 
 4.  Add the following properties and select **Save**.
 
-[TABLE]
+| Name | Property Type |
+|------|---------------|
+| `FreezerId` | `String` |
+| `Model` | `String` |
+| `minSafeTempC` | `Double` |
+| `StoreId` | `String` |
 
 ![](./media/image109.png)
 
@@ -777,11 +783,11 @@ between a store and its freezers.
 2.  Enter the following relationship type details and select **Add
     relationship type**.
 
-    1.  **Relationship type name**: *operates*
+    1.  **Relationship type name**: **operates**
 
-    2.  **Source entity type**: *Store*
+    2.  **Source entity type**: **Store**
 
-    3.  **Target entity type**: *Freezer*
+    3.  **Target entity type**: **Freezer**
 
 ![](./media/image131.png)
 
@@ -796,7 +802,7 @@ between a store and its freezers.
 - **Relationship type**: Sets details of the relationship type.
 
 - **Target entity type**: Lists details of the target entity
-  (*Freezer* in this case).
+  (**Freezer** in this case).
 
 ![](./media/image132.png)
 
@@ -805,7 +811,7 @@ between a store and its freezers.
 4.  In the middle section, enter the following details.
 
 - **Mapping table**: Select the **freezer** table. This table in the
-  source data can link *Store* and *Freezer* entities together, because
+  source data can link **Store** and **Freezer** entities together, because
   it contains identifying information for both entity types. Each row in
   this table references a store and a freezer by ID.
 
@@ -823,8 +829,7 @@ between a store and its freezers.
 
 ![](./media/image134.png)
 
-**  
- Important:** Make sure to select the correct source columns that match
+**Important:** Make sure to select the correct source columns that match
 the entity type key properties.
 
 5.  **Save** the relationship type. Confirm that the relationship type
@@ -930,8 +935,8 @@ in the top ribbon to craft queries.
 
 ![](./media/image150.png)
 
-First, craft this query: *Show all freezers that are operated in the
-Paris store.*
+First, craft this query: **Show all freezers that are operated in the
+Paris store.**
 
 1.  In the *Store* entity's relationship graph, select **Add filter \>
     Store \> StoreId** from the query builder ribbon. Set the filter
@@ -1079,7 +1084,7 @@ incorrect.](./media/image173.png)
 2.  Enter the following text and click on the **Submit icon** as shown
     in the below image.
 
-> *+++What is the top product by revenue across all stores?+++*
+> **+++What is the top product by revenue across all stores?+++**
 
 ![A screenshot of a chat AI-generated content may be
 incorrect.](./media/image174.png)
@@ -1088,12 +1093,12 @@ incorrect.](./media/image174.png)
 incorrect.](./media/image175.png)
 
 > Notice that the responses reference entity types
-> (*Store*, *Products*, *Freezer*) and their relationships, not just raw
+> (**Store**, **Products**, **Freezer**) and their relationships, not just raw
 > tables.
 >
 > ![Screenshot of the result of a query.](./media/image176.png)
 >
-> ** Tip:** If you see errors that say there's no data while running the
+> **Tip:** If you see errors that say there's no data while running the
 > example queries, wait a few minutes to give the agent more time to
 > initialize. Then, run the queries again.
 >
