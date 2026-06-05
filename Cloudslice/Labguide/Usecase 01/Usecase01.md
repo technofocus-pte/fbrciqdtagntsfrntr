@@ -1,4 +1,4 @@
-# Use Case 1 - Build connected data models with Fabric IQ Ontology​
+## Use Case 1 - From Semantics to Insights: Leveraging Fabric IQ Ontology with Fabric Data Agents
 
 **Introduction**
 
@@ -14,10 +14,10 @@ In the scenario, a fictional company called **Lakeshore Retail**, which
 sells ice cream at multiple locations. Using sample data, the tutorial
 shows how to set up your environment and begin building an ontology that
 captures business concepts such as *Store*, *Products*, and *SaleEvent*.
-You'll also connect streaming data (like freezer temperatures from
+You’ll also connect streaming data (like freezer temperatures from
 Eventhouse) to these concepts so the ontology can support **cross-domain
-reasoning and queries**, for instance: *"Which stores have lower ice
-cream sales when freezer temperature rises above -18 °C?"*
+reasoning and queries**, for instance: *“Which stores have lower ice
+cream sales when freezer temperature rises above –18 °C?”*
 
 **Objectives**
 
@@ -51,519 +51,550 @@ reports.
 
 1.  Open your browser, navigate to the address bar, and type or paste
     the following URL: +++https://app.fabric.microsoft.com/+++
-    then press the **Enter** button and sign in with your credentials
+    then press the **Enter** button and sign in with your credentials
 
-    |  |   |
-    |---|----|
-    |Username	|+++@lab.CloudPortalCredential(User1).Username+++|
-    |TAP	|+++@lab.CloudPortalCredential(User1).AccessToken+++|
+| Credential | Value |
+|------------|-------|
+| Username | `+++@lab.CloudPortalCredential(User1).Username+++` |
+| Password | `+++@lab.CloudPortalCredential(User1).Password+++` |
 
+2.  In the Workspaces pane, click on **+New workspace** tile
 
-2.  In the Workspaces pane, click on **+New workspace** tile
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image1.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image1.png)
+3.  In the **Create a workspace** pane that appears on the right side,
+    enter the following details, and click on the **Apply** button.
 
-3.  In the **Create a workspace** pane that appears on the right side,
-    enter the following details, and click on the **Apply** button.
-	
-    |  |  |
-    |---|----|
-    |Name	|+++Fabric IQ Ontology@lab.LabInstance.Id+++|
-    |License Mode	| **Fabric capacity**|
-    |Model Storage Format	|**Small dataset storage format**|
+| Setting | Value |
+|----------|----------|
+| Name | +++Fabric IQ OntologyXXXX+++ **(XXXX can be a unique number)** |
+| Advanced | Under **License mode**, select **Fabric capacity** |
+| Default storage format | **Small dataset storage format** |
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image2.png)
-
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image3.png)
-
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image4.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image2.png)
+>
+> ![](./media/image3.png)
+>
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image4.png)
 
 ## Task 2: Create a lakehouse
 
-1.  Create a new lakehouse by clicking on the **+New item** button in
+1.  Create a new lakehouse by clicking on the **+New item** button in
     the navigation bar.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image5.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image5.png)
 
-2.  Filter by, and select, the +++Lakehouse+++ tile.
+2.  Filter by, and select, the **+++Lakehouse+++** tile.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image6.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image6.png)
 
-3.  In the **New lakehouse** dialog box, enter +++IQ_Lakehouse@lab.LabInstance.Id+++ in the **Name** field and **unselect** the lakehouses schemas.Click on the **Create** button and open the new lakehouse.
+3.  In the **New lakehouse** dialog box, enter **+++IQ_Lakehouse
+    +++** in the **Name** field and **unselect** the lakehouses schemas.
+    Click on the **Create** button and open the new lakehouse.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image7.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image7.png)
+>
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image8.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image8.png)
-
-4.  You will see a notification stating **Successfully created SQL
+4.  You will see a notification stating **Successfully created SQL
     endpoint**.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image9.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image9.png)
 
 ## Task 3: Ingest sample data
 
-1.  In the **IQ_Lakehouse** page, navigate to **Get data in your
-    lakehouse** section, and click on **Upload files as shown in the
+1.  In the **IQ_Lakehouse** page, navigate to **Get data in your
+    lakehouse** section, and click on **Upload files as shown in the
     below image.**
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image10.png)
+> ![](./media/image10.png)
 
 2.  On the Upload files tab, click on the folder under the Files
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image11.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image11.png)
 
-3.  Browse to **C:\LabFiles\Lab1** on your VM, then
-    select **DimProducts.csv, DimStore.csv, FactSale.csv** and
-    **Freezer.csv** file and click on **Open** button.
+3.  Browse to **C:\LabFiles\LabFiles** on your VM, then
+    select **DimProducts.csv, DimStore.csv, FactSale.csv** and
+    **Freezer.csv** file and click on **Open** button.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image12.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image12.png)
 
-4.  Then, click on the **Upload** button and close the **Upload
-    files** dialog by selecting the **X** icon for the dialog.
+4.  Then, click on the **Upload** button and close the **Upload
+    files** dialog by selecting the **X** icon for the dialog.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image13.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image13.png)
+>
+> ![A screenshot of a upload box AI-generated content may be
+> incorrect.](./media/image14.png)
 
-    ![A screenshot of a upload box AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image14.png)
+5.  Click and select refresh on the **Files**. The file appear.
 
-5.  Click and select refresh on the **Files**. The file appear.
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image15.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image15.png)
+6.  In the **Lakehouse** page, Under the Explorer pane select **Files**.
+    Now, hover your mouse over the **DimProducts.csv** file. Click on
+    the horizontal ellipses **(…)** beside **DimProducts.csv** .
+    Navigate and click on **Load Table**, then select **New table**.
 
-6.  In the **Lakehouse** page, Under the Explorer pane select **Files**.
-    Now, hover your mouse over the **DimProducts.csv** file. Click on
-    the horizontal ellipses **(…)** beside **DimProducts.csv** .
-    Navigate and click on **Load Table**, then select **New table**.
+> ![](./media/image16.png)
+>
+> ![](./media/image17.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image16.png)
+7.  In the **Load file to new table** dialog box, click on
+    the **Load** button.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image17.png)
-
-7.  In the **Load file to new table** dialog box, click on
-    the **Load** button.
-
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image18.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image18.png)
 
 8.  Now successfully created **DimProducts** table
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image19.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image19.png)
 
-9.  Select the **DimProducts** table to preview the data.
+9.  Select the **DimProducts** table to preview the data.
 
-    >[!Note]: You may need to select the **Refresh** button more
+\[!note\]**Note**: You may need to select the **Refresh** button more
 than once to preview the data.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image20.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image20.png)
 
 10. Repeat Steps 7 through 9 to push the remaining files into the
     tables.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image21.png)
+![](./media/image21.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image22.png)
+![A screenshot of a computer AI-generated content may be
+incorrect.](./media/image22.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image23.png)
+> ![](./media/image23.png)
+>
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image24.png)
+>
+> ![](./media/image25.png)
+>
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image26.png)
+>
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image27.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image24.png)
+11. From the left navigation bar, select **Fabric IQ Ontology**.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image25.png)
-
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image26.png)
-
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image27.png)
-
-11. From the left navigation bar, select **Fabric IQ Ontology**.
-
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image28.png)
+> ![](./media/image28.png)
 
 ## Task 4: Prepare the eventhouse
 
 Follow these steps to upload the device streaming data file to a KQL
 database in Eventhouse.
 
-1.  On the **Fabric IQ Ontology** home page, select **+New item** and
-    select **Eventhouse**. 
+1.  On the **Fabric IQ Ontology** home page, select **+New item** and
+    select **Eventhouse**. 
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image29.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image29.png)
 
-2.  Name the Eventhouse +++TelemetryDataEH+++ and click on
-    the **Create** button.
+2.  Name the Eventhouse +++**TelemetryDataEH**+++ and click on
+    the **Create** button.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image30.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image30.png)
 
-3.  The eventhouse opens when it's ready    ![A screenshot of a computer
-    AI-generated content may be incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image31.png)
+3.  The eventhouse opens when it's ready
+   ![A screenshot of a computer
+    AI-generated content may be incorrect.](./media/image31.png)
 
 4.  Open the KQL database by selecting its name.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image32.png)
-
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image33.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image32.png)
+>
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image33.png)
 
 5.  On the lower ribbon of your **KQL database**, click on **Get data**,
     then select **Local file** to upload files from your local system
-    into the database.
-    
-    ![A screenshot of a computer AI-generated content may be incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image34.png)
+    into the database.![A screenshot of a computer AI-generated content
+    may be incorrect.](./media/image34.png)
 
-7.  Select the target option to ingest data into a new table, click +
+6.  Select the target option to ingest data into a new table, click +
     New table, and enter a table name as +++**FreezerTelemetry**+++.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image35.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image35.png)
+>
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image36.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image36.png)
-
-8.  Select the destination table, then drag and drop the files or click
+7.  Select the destination table, then drag and drop the files or click
     *Browse for files* to upload the data.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image37.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image37.png)
 
-9.  Browse to **C:\LabFiles\Lab1** on your VM, then
-    select **FreezerTelemetry.csv** file and click on **Open** button.
+8.  Browse to **C:\LabFiles\Lab1** on your VM, then
+    select ***FreezerTelemetry*.csv** file and click on **Open** button.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image38.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image38.png)
 
-10.  Click on **Next** button
+9.  Click on **Next** button
 
-     ![A screenshot of a computer AI-generated content may be incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image39.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image39.png)
 
-11. Then click on the **Finish** button.
+10. Then click on the **Finish** button.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image40.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image40.png)
 
-12. Wait for the Data ingestion to be completed, and click **Close**.
+11. Wait for the Data ingestion to be completed, and click **Close**.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image41.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image41.png)
 
-13. The KQL database shows the **FreezerTelemetry** table when you're
+12. The KQL database shows the **FreezerTelemetry** table when you're
     done:
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image42.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image42.png)
 
-14. Select **Fabric IQ Ontology** in the left navigation pane.
+13. Select **Fabric IQ Ontology** in the left navigation pane.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image43.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image43.png)
 
 # Exercise 2: Building an ontology from OneLake
 
 ## Task 1: Create ontology (preview) item
 
-1.  In your Fabric workspace, select **+ New item**. Search for and
-    select the **Ontology (preview)** item.
+1.  In your Fabric workspace, select **+ New item**. Search for and
+    select the **Ontology (preview)** item.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image44.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image44.png)
 
-2.  Enter +++RetailSalesOntology+++ for the **Name** of your
-    ontology and select **Create**.
+2.  Enter +++**RetailSalesOntology+++** for the **Name** of your
+    ontology and select **Create**.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image45.png)
-
-    >[!Tip]: Ontology names can include numbers, letters, and
-underscores. Don't use spaces or dashes.
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image45.png)
+>
+> **Tip:** Ontology names can include numbers, letters, and
+> underscores. Don't use spaces or dashes.
 
 3.  The ontology opens when it's ready.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image46.png)
-
-Next, create entity types, data bindings, and relationships based on
-data from your lakehouse tables.
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image46.png)
+>
+> Next, create entity types, data bindings, and relationships based on
+> data from your lakehouse tables.
 
 ## Task 2: Create entity types and data bindings
 
-First, create entity types. Entity types represent types of objects in
-a business. This step has three entity types: **Store**, **Products**,
-and *SaleEvent*. After you create the entity types, create their
-properties by binding source data columns in
-the ***IQ_Lakehouse*** lakehouse tables.
+> First, create entity types. Entity types represent types of objects in
+> a business. This step has three entity types: *Store*, *Products*,
+> and *SaleEvent*. After you create the entity types, create their
+> properties by binding source data columns in
+> the ***IQ_Lakehouse*** lakehouse tables.
 
 ### Add first entity type (Store)
 
 1.  From the top ribbon or the center of the configuration canvas,
-    select **Add entity type**.
+    select **Add entity type**.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image47.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image47.png)
 
-2.  Enter +++Store+++ for the name of your entity type and
-    select **Add Entity Type**.
+2.  Enter +++**Store+++ **for the name of your entity type and
+    select **Add Entity Type**.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image48.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image48.png)
 
-3.  The **Store** entity type is added to the configuration canvas, and
-    the **Entity type configuration** pane is visible.
+3.  The *Store* entity type is added to the configuration canvas, and
+    the **Entity type configuration** pane is visible.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image49.png)
+> ![](./media/image49.png)
 
-4.  To create entities from existing source data, switch to
-    the **Bindings** tab. Select **Add data to entity type**.
+4.  On the configuration canvas, select **...** next to the entity name
+    and select **Bind data**.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image50.png)
+> ![](./media/image50.png)
 
-5.  Next, choose your data source.Select the **IQ_Lakehouse** lakehouse and select **Connect**.
+5.  Select **Add data binding \> Lakehouse table**.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image51.png)
+> ![](./media/image51.png)
 
-12. Select the **dimstore** table and select **Next**.
+6.  Next, choose your data source.Select the **IQ_Lakehouse** lakehouse
+    and select **Next**.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image52.png)
+> ![](./media/image52.png)
 
-6.  Configure a static data binding for the following properties.
+7.  Select the **dimstore** table and select **Select**.
 
-    a)  For **Binding type**, don't change the default selection
-        of **Static**.
+![](./media/image53.png)
 
-    b)  Under **Bind your properties**, the columns from
-        the **dimstore** table populate automatically. The **Source
-        column** side lists their names in the source data, and
-        the **Property name** side lists their corresponding property
-        names on the *Store* entity type within ontology. Don't change
-        the default property names, which match the source column names.
+8.  Fields from the source table populate the data binding
+    configuration. Observe the sections of the configuration page:
 
-    c)  Select **Save**.
+- **Entity type key**: Identifies the field (or fields) that can be used
+  to uniquely identify each record of ingested data.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image53.png)
+- **Binding selection**: Identifies the source table that holds the data
+  for the binding.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image54.png)
+- **Entity type key mapping**: Identifies the column(s) in the source
+  data table that map to the entity type key property. You can select
+  string and integer columns from your source data as the entity type
+  key. Together, the columns you select uniquely identify a record.
 
-7.  Back in the **Entity type configuration** pane, the data binding is
-    visible. Next, select **Add entity type key**.
+- **Properties**: Lists the columns from the source data that will be
+  represented as properties on the *Store* entity type. The **Source
+  column** side populates automatically with the columns from
+  the *dimstore* table, and the **Property name** side lists their
+  corresponding property names on the *Store* entity type within
+  ontology. For this tutorial, keep the default property names.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image55.png)
+![](./media/image54.png)
 
-8.  Select **StoreId** as the key property and select **Save**.
+9.  Select **Define entity type key** at the top of the configuration.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image56.png)
+![](./media/image55.png)
 
-9.  Now the **Store** entity type is ready. Continue to the next section
-    to create the remaining entity types.
+10. Select **StoreId** from the property list and select **Save**.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image57.png)
+![](./media/image56.png)
 
-	### Add other entity types (Products, SaleEvent)
+11. **Save** the data binding.
 
-10. Follow the same steps that you used for the **Store** entity type to
+![](./media/image57.png)
+
+![](./media/image58.png)
+
+12. Confirm that the entity type updated successfully, then
+    select **Cancel** to close the configuration options.
+
+![](./media/image59.png)
+
+13. You see the **Configure** page of the entity type details. This page
+    surfaces important information about the entity type, including its
+    properties and data bindings. View your configured data bindings.
+
+![](./media/image60.png)
+
+14. Select **Home** to return to the configuration canvas and add new
+    entity types.
+
+![](./media/image61.png)
+
+### Add other entity types (Products, SaleEvent)
+
+15. Follow the same steps that you used for the **Store **entity type to
     create the entity types described in the following table. Each
     entity has a static data binding with the default columns from its
     source table.
 
-	|  |   |   |
-	|---|---|---|
-	|Entity type name|	Source table in IQ_Lakehouse	|Entity type key|
-	|+++Products+++|  dimproducts	| ProductId|
-	|+++SaleEvent+++	|factsales	|SaleId|
+| Entity Type Name | Source Table in IQ_Lakehouse | Entity Type Key |
+|------------------|------------------------------|-----------------|
+| +++Products+++<br><br>**Note:** Use the plural form **Products** to avoid conflict with the GQL reserved word **PRODUCT**. | **dimproducts** | **ProductId** |
+| +++SaleEvent+++ | **factsales** | **SaleId** |
 
+![](./media/image62.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image58.png)
+> ![](./media/image63.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image59.png)
+![](./media/image64.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image60.png)
+![](./media/image65.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image61.png)
+![](./media/image66.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image62.png)
+![](./media/image67.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image63.png)
+![](./media/image68.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image64.png)
+![](./media/image69.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image65.png)
+![](./media/image70.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image66.png)
+![](./media/image71.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image67.png)
+![](./media/image72.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image68.png)
+16. Select **Home** to return to the configuration canvas and add
+    **SaleEvent** entity types.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image69.png)
+![](./media/image73.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image70.png)
+![](./media/image74.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image71.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image75.png)
+>
+> ![](./media/image76.png)
+>
+> ![](./media/image77.png)
+>
+> ![](./media/image78.png)
+>
+> ![](./media/image79.png)
+>
+> ![](./media/image80.png)
+>
+> ![](./media/image81.png)
+>
+> ![](./media/image82.png)
+>
+> ![](./media/image83.png)
+>
+> ![](./media/image84.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image72.png)
+17. When you're done, you see these entity types listed in the **Entity
+    Types** pane.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image73.png)
-
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image74.png)
-
-11. When you're done, you see these entity types listed in the **Entity
-    Types** pane.
-
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image75.png)
+![](./media/image85.png)
 
 ## Task 3: Create relationship types
 
 Next, create relationship types between the entity types to represent
 contextual connections in your data.
 
-**Store has SaleEvent**
+### SaleEvent from Store
 
-1.  Select **Add relationship** from the menu ribbon.
+1.  Select the **SaleEvent** entity type from the Explorer.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image76.png)
+> ![](./media/image86.png)
 
-2.  Enter the following relationship type details and select **Add
+2.  Select **Add relationship** from the menu ribbon.
+
+> ![](./media/image87.png)
+
+3.  Enter the following relationship type details and select **Add
     relationship type**.
 
-	- **Relationship type name**: +++has+++
+- **Relationship type name**: +++from+++
 
-	- **Source entity type**: Store
+- **Source entity type**: *SaleEvent*
 
-	- **Target entity type**: SaleEvent
+- **Target entity type**: *Store*
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image77.png)
+> ![](./media/image88.png)
+>
+> ![](./media/image89.png)
 
-3.  The **Relationship configuration** pane opens, where you can
-    configure additional information. Enter the following details (some
-    fields become visible based on other selections) and
-    select **Create**.
+4.  The relationship is added to the semantic canvas. Select it to open
+    the relationship details configuration. Observe the sections of the
+    configuration page:
 
-    1.  **Source data**: Select your tutorial workspace,
-        the **Fabric IQ Ontology_Lakehouse**  lakehouse, and the **factsales** table.
-        This table in the source data can
-        link **Store** and **SaleEvent** entities together, because it
-        contains identifying information for both entity types. Each row
-        in this table references a store and a sale event by ID.
+- **Origin entity type**: Lists details of the origin entity
+  (**SaleEvent** in this case).
 
-    1.  **Source entity type \Source column**: Select **StoreId**.
-        This setting specifies the column in the relationship source
-        data table (*factsales* *StoreId*) whose values match the key
-        property defined on the *Store* entity (*dimstore* *StoreId*).
-        In the tutorial data, the column name is the same in both
-        tables.
+- **Relationship type**: Sets details of the relationship type.
 
-    1.  **Target entity type \Source column**: Select SaleId. This
-        setting specifies the column in the relationship source data
-        table whose values match the key property defined on
-        the **SaleEvent** entity. In this case, the relationship data
-        source and the entity data source both use
-        the **factsales** table, so you're selecting the same column.
+- **Target entity type**: Lists details of the target entity
+  (**Store **in this case).
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image78.png)
+> ![](./media/image90.png)
+>
+> ![](./media/image91.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image79.png)
+5.  In the middle section, enter the following details.
 
-	Now the first relationship is created, and bound to data in your
-	source table. Continue to the next section to create another
-	relationship type.
+&nbsp;
 
-### Products soldIn SaleEvent
+1.  **Mapping table**: **Browse available sources** and select
+    the **factsales** table. This table in the source data can
+    link *Store* and *SaleEvent* entities together, because it contains
+    identifying information for both entity types. Each row in this
+    table references a store and a sale event by ID.
 
-4.  Follow the same steps that you used for the first relationship type
-    to create the relationship type described in the following table.
+> ![](./media/image92.png)
 
-	|   |   |   |
-	|----|----|----|
-	|Relationship type name|Source data table|	Source entity type	|Target entity type|
-	|+++soldIn+++	|Tutorial workspace IQ_Lakehosefactsales|	Products For Source column, select ProductId.	SaleEvent|For Source column, select SaleId.|
+2.  **Matched SaleEvent: SaleId**: Select **SaleId**. This setting
+    specifies the column in the relationship source data table whose
+    values match the key property defined on the *SaleEvent* entity. In
+    this case, the relationship data source and the entity data source
+    both use the *factsales* table, so you're selecting the same column
+    (SaleId).
 
+3.  **Matched Store: StoreId**: Select **StoreId**. This setting
+    specifies the column in the relationship source data table
+    (*factsales \>* StoreId) whose values match the key property defined
+    on the *Store* entity (*dimstore \>* StoreId). In the tutorial data,
+    the column name is the same (StoreId) in both tables.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image80.png)
+> ![](./media/image93.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image81.png)
+**  
+ Important:** Make sure to select the correct **Matched** columns that
+match the entity type key properties.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image82.png)
+6.  **Save** the relationship type. Confirm that the relationship type
+    updated successfully, then select **Cancel** to close the
+    configuration options.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image83.png)
+> ![](./media/image94.png)
+>
+> ![](./media/image95.png)
+>
+> ![](./media/image96.png)
+>
+> Now the first relationship is created, and bound to data in your
+> source table. Continue to the next section to create another
+> relationship type.
 
-	When you're done, you have two relationships targeting
-	the **SaleEvent** entity type. To see the relationships, select
-	the **SaleEvent** entity type from the **Entity Types** pane. You see
-	its relationships on the configuration canvas.
+### **SaleEvent sold Products**
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image84.png)
+1.  Select **Home** to return to the configuration canvas where you can
+    add new entity types.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image85.png)
+![](./media/image97.png)
 
-# Exercise 3: Enrich the ontology with additional data
+2.  Follow the same steps that you used for the first relationship type
+    to create a second relationship from the **SaleEvent **entity type
+    that has the details described in the following table.
+
+[TABLE]
+
+![](./media/image98.png)
+
+![](./media/image99.png)
+
+![](./media/image100.png)
+
+![](./media/image101.png)
+
+![](./media/image102.png)
+
+![](./media/image103.png)
+
+![](./media/image104.png)
+
+# Exercise 3:Enrich the ontology with additional data
 
 In this exercise, you enrich your ontology by adding a
-new ***Freezer*** entity type. This entity type adds more domain context
+new ***Freezer* **entity type. This entity type adds more domain context
 and introduces properties for time series data, which reflects live
 operational information.
 
->[!Note]: For both static and time series data, you can create properties without
+** Note**
+
+For both static and time series data, you can create properties without
 binding data and bind data later, or create properties and bind data to
 them in a single step. This article demonstrates both approaches.
 
@@ -572,146 +603,164 @@ between a store and its freezers.
 
 ## Task 1: Create Freezer entity type and add properties
 
-Follow these steps to create the *Freezer* entity type and add
+Follow these steps to create the *Freezer* entity type and add
 properties to it. The properties aren't bound to data yet.
 
-1.  Select **Add entity type** from the top ribbon.
-    Enter +++Freezer+++ for the name of your entity type and
-    select **Add Entity Type**.
+1.  Select **Add entity type** from the top ribbon.
+    Enter +++**Freezer*+++*** for the name of your entity type and
+    select **Add Entity Type**.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image86.png)
+> ![](./media/image105.png)
+>
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image106.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image87.png)
+2.  With the Freezer entity type selected in the **Explorer**,
+    select **View entity type details** from the top ribbon.
 
-2.  In the **Entity type configuration** pane, go to
-    the **Properties** tab. Select **Add properties**.
+> ![](./media/image107.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image88.png)
+3.  The **Configure** page of the entity type details opens. This page
+    surfaces important information about the entity type, including its
+    properties and data bindings.
 
-3.  Add the following properties and select **Save**.
+Expand **Manage property bindings** and select **Add properties**.
 
-    |    |  |   |
-    |----|----|---|
-    |Name	|Value type	|Property type|
-    |+++FreezerId+++	|String	|Static|
-    |+++Model+++	|String	|Static|
-    |+++minSafeTempC+++|	Double|	Static|
-    |+++StoreId+++	|String|Static|
+![](./media/image108.png)
 
+4.  Add the following properties and select **Save**.
 
-	>[!Note]: Property names must be unique across all entity types.
+[TABLE]
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image89.png)
+![](./media/image109.png)
 
-4.  Here's what it looks like before saving:
+**Note:** Property names must be unique across all entity types.
 
-5.  Select **Add entity type key**.
+![](./media/image110.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image90.png)
+5.  The properties are added to the **Configure** page, unbound to any
+    data source.
 
-6.  Select **FreezerId** as the key value and click on **Save**
-
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image91.png)
+> ![](./media/image111.png)
 
 ## Task 2: Bind static data to properties
 
 Next, bind static data to the properties you created on
-the *Freezer* entity type.
+the *Freezer* entity type.
 
-1.  In the **Entity type configuration** pane, go to
-    the **Bindings** tab. Select **Add data to entity type**.
+1.  Expand **Manage property bindings** and select **Add binding and
+    properties**.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image92.png)
+> ![](./media/image112.png)
 
-2.  From **OneLake catalog**, select the **IQ_Lakehouse** Lakehouse
-    and click **Connect** to establish the data connection.
-     ![A screenshot of a computer AI-generated content may be
-    incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image93.png)
+2.  Select **Add data binding \> Lakehouse table**.
 
-4.  Select the **freezer** table from the **IQ_Lakehouse** data source,
-    then click **Next** to proceed to the data binding step
+> ![](./media/image113.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image94.png)
+3.  Choose your data source.
 
-5.  Configure a static data binding for the properties.
+- Select the **IQ_Lakehouse** lakehouse and select **Next**.
 
-    a.  For **Binding type**, use the default selection of **Static**.
+- Select the **freezer** table and **Select**.
 
-    b.  Under **Bind your properties**, the properties you created
-        populate automatically with links to matching columns from
-        the *freezer* table.
+> ![](./media/image114.png)
+>
+> ![](./media/image115.png)
 
-    c.  Select **Save**.
+4.  Fields from the source table populate the data binding
+    configuration. Observe the sections of the configuration page:
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image95.png)
+- **Entity type key**: Identifies the field (or fields) that can be used
+  to uniquely identify each record of ingested data.
 
-6.  Now the **Freezer** entity has static data bound to it.
+- **Binding selection**: Identifies the source table that holds the data
+  for the binding.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image96.png)
+- **Entity type key mapping**: Identifies the column(s) in the source
+  data table that map to the entity type key property. You can select
+  string and integer columns from your source data as the entity type
+  key. Together, the columns you select uniquely identify a record.
+
+- **Properties**: Lists the columns from the source data and
+  corresponding properties on the **Freezer** entity type. The **Source
+  column** side populates automatically with the columns from
+  the **freezer** table, and the **Property name** side lists their
+  corresponding property names on the **Freezer** entity type within
+  ontology. For this tutorial, keep the default property names.
+
+![](./media/image116.png)
+
+5.  Select **Define entity type key** at the top of the configuration.
+    Select FreezerId from the property list and select **Save**.
+
+![](./media/image117.png)
+
+![](./media/image118.png)
+
+6.  **Save** the data binding. Confirm that the entity type updated
+    successfully, then select **Cancel** to close the configuration
+    options.
+
+![](./media/image119.png)
+
+![](./media/image120.png)
 
 ## Task 3: Bind time series data to additional properties
 
-Next, add time series data on the **Freezer** entity, by creating new
+Next, add time series data on the **Freezer **entity, by creating new
 properties and binding time series data to them in a single data binding
 operation.
 
-1.  In the **Entity type configuration** pane's **Bindings** tab,
-    select **Add data to entity type**.
+1.  In the **Configure** page, expand **Manage property bindings** and
+    select **Add binding and properties** again to reopen the binding
+    configuration.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image97.png)
+![](./media/image121.png)
 
-2.  From **OneLake catalog**, select the **TelemetryDataEH** Eventhouse
-    and click **Connect** to establish the data connection.
+2.  Under **Binding selection**, expand **Add data binding** and
+    select **Eventhouse table or materialized view**.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image98.png)
+![](./media/image122.png)
 
-3.  Select the **Freezer Telemetry** table from the **TelemetryDataEH data source** data source,
-    then click **Next** to proceed to the data binding step.
+3.  Choose your data source.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image99.png)
+    1.  Select the **TelemetryDataEH **eventhouse and select **Add**.
 
-4.  Configure a time series data binding.
+![](./media/image123.png)
 
-    1.  For **Binding type**, keep the default selection
-        of **Timeseries**. For **Source data timestamp column**,
-        select timestamp.
+2.  Select the **FreezerTelemetry **table and **Add**.
 
-    2.  Under **Bind your properties \Static**, two source data
-        columns populate that match static properties already defined on
-        the entity. Keep them as they are.
+![](./media/image124.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image100.png)
+4.  A **Timeseries data** section appears in the configuration.
+    For **Timestamp column**, select timestamp
 
-3.  Under **Bind your properties \Timeseries**, the time series
-    columns from the **FreezerTelemetry** table populate automatically
-    with matching property names for the *Freezer* entity type. Keep the
-    default selections.
+![](./media/image125.png)
 
-4.  Select **Save**.
+5.  Scroll down to the **Properties** section, where
+    the **StoreId **shows an error because it is already bound in the
+    static data binding. Use the trash icon to delete the duplicated
+    property.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image101.png)
+![](./media/image126.png)
 
-5.  Now the **Freezer entity** has two data bindings: one with
-    **static** data from the **freezer lakehouse** table and one with
-    streaming data from the **FreezerTelemetry** eventhouse table.
+6.  **Save** the data binding. Confirm that the entity type updated
+    successfully, then select **Cancel** to close the configuration
+    options.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image102.png)
+![](./media/image127.png)
+
+![](./media/image128.png)
+
+7.  Back in the **Configure** page for *Freezer*, notice that there are
+    now more entity type properties, and the new ones are bound to
+    the *FreezerTelemetry* data source.
+
+![](./media/image129.png)
+
+Now the *Freezer* entity has two data bindings: one with static data
+from the *freezer* lakehouse table and one with streaming data from
+the *FreezerTelemetry* eventhouse table.
 
 ## Task 4: Add relationship type
 
@@ -720,257 +769,233 @@ between a store and its freezers.
 
 **Create Store operates Freezer**
 
-1.  Select **Add relationship** from the menu ribbon.
+1.  In the **Configure** page, expand Manage relationships and select
+    **Add new relationship**.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image103.png)
+![](./media/image130.png)
 
-2.  Enter the following relationship type details and select **Add
+2.  Enter the following relationship type details and select **Add
     relationship type**.
 
-    1.  **Relationship type name**: +++operates+++
+    1.  **Relationship type name**: *operates*
 
-    2.  **Source entity type**: Store
+    2.  **Source entity type**: *Store*
 
-    3.  **Target entity type**: Freezer
+    3.  **Target entity type**: *Freezer*
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image104.png)
+![](./media/image131.png)
 
-3.  The **Relationship configuration** pane opens, where you can
-    configure additional information. Enter the following details (some
-    fields become visible based on other selections) and
-    select **Create**.
+3.  The relationship is added to the **Relationships** section. Select
+    the **operates** relationship on the canvas to open the relationship
+    details configuration. Observe the sections of the configuration
+    page:
 
-1.  **Source data**: Select your workspace, the **IQ_Lakehouse**
-	lakehouse, and the **freezer** table. This table in the source
-	data can link **Store** and **Freezer** entities together,
-	because it contains identifying information for both entity
-	types. Each row in this table references a store and a freezer
-	by ID.
+- **Origin entity type**: Lists details of the origin entity (*Store* in
+  this case).
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image105.png)
+- **Relationship type**: Sets details of the relationship type.
 
-2.  **Source entity type \Source column**: Select **StoreId**. This
-    setting specifies the column in the relationship source data table
-    (\freezer  \StoreId) whose values match the key property defined
-    on the **Store** entity (\dimstore \StoreId). In the tutorial data,
-    the column name is the same in both tables.
+- **Target entity type**: Lists details of the target entity
+  (*Freezer* in this case).
 
-3.  **Target entity type \Source column**: Select FreezerId. This
-    setting specifies the column in the relationship source data table
-    whose values match the key property defined on the **Freezer** entity.
-    In this case, the relationship data source and the entity data
-    source both use the **freezer** table, so you're selecting the same
-    column.
+![](./media/image132.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image106.png)
+![](./media/image133.png)
 
-	Here's what the relationship configuration looks like:
+4.  In the middle section, enter the following details.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image107.png)
+- **Mapping table**: Select the **freezer** table. This table in the
+  source data can link *Store* and *Freezer* entities together, because
+  it contains identifying information for both entity types. Each row in
+  this table references a store and a freezer by ID.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image108.png)
+- **Matched Store: StoreId**: Select **StoreId**. This setting specifies
+  the column in the relationship source data table (*freezer
+  \>* StoreId) whose values match the key property defined on
+  the *Store* entity (*dimstore \>* StoreId). In the tutorial data, the
+  column name is the same (StoreId) in both tables.
 
-# Exercise 4: Preview the ontology
+- **Matched Freezer: FreezerId**: Select **FreezerId.** This setting
+  specifies the column in the relationship source data table whose
+  values match the key property defined on the *Freezer* entity. In this
+  case, the relationship data source and the entity data source both use
+  the *freezer* table, so you're selecting the same column (FreezerId).
+
+![](./media/image134.png)
+
+**  
+ Important:** Make sure to select the correct source columns that match
+the entity type key properties.
+
+5.  **Save** the relationship type. Confirm that the relationship type
+    updated successfully, then select **Cancel** to close the
+    configuration options.
+
+![](./media/image135.png)
+
+![](./media/image136.png)
+
+6.  You see the **Configure** page for the entity, where the updated
+    relationship remains visible in the **Relationships** section.
+
+![](./media/image137.png)
+
+# Exercise 4: **View the ontology**
 
 In this exercise, explore your ontology by using the preview experience.
 Inspect entity instances that instantiate your entity types with data,
 and explore graph-shaped context across sales and device streaming data.
 
-## Task 1: Preview entity instances
+## Task 1: **View instance list and static data**
 
 When you bound data to your entity types in previous tutorial steps,
 ontology automatically created instances of those entities that are tied
 to the source data rows. In this section, you use the preview experience
 to view those entity instances.
 
-1.  Select the **SaleEvent** entity type, and select **Entity type
-    overview** from the top ribbon.
+1.  Start in the Home configuration canvas of ontology. Select
+    the **SaleEvent **entity type, and **View Entity Type details** from
+    the top ribbon.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image109.png)
+![](./media/image138.png)
 
-2.  It might take a few minutes for the ontology overview to load the
-    first time.
+2.  Open the **Instances** tab. Verify that it shows six entity
+    instances with data populated from the **factsales **lakehouse
+    table, like revenue and unit counts.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image110.png)
+![](./media/image139.png)
 
-    ![A screenshot of a graph AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image111.png)
+## Task 2: View time series data
 
-3.  Scroll down to the **Entity instances** section. Verify that it
-    shows entity instances, with unit counts and revenue populated from
-    the **factsales** lakehouse table.
+1.  In the top left corner of the page, use the selector next to the
+    entity type name to switch to the **Freezer** entity type.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image112.png)
+![](./media/image140.png)
 
-	>[!Tip]:  If data bindings don't load, confirm that the source data
-	tables exist with matching column names, and that your Fabric identity
-	has data access.
+2.  Open the **Overview** tab. The tab loads with empty charts, because
+    the default time range of **Last 30 days** doesn't include any data.
 
-4.  Open the **Freezer** entity type in the preview experience, by
-    selecting it in the **Entity Types** pane and selecting **Entity
-    type overview** from the top ribbon.
+![](./media/image141.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image113.png)
+3.  Update the time range from the default of **Last 30 days** to a
+    custom date range that begins on **Fri Aug 01 2025 at 12:00 AM,**
+    ends on **Mon Aug 04 2025** *at* **12:00 AM**, and has a **Time
+    granularity** of **5 minutes**.
 
-5.  Update the time range from the default of *Last 30 minutes* to a
-    custom date range that begins on *Fri Jan 01 2025 at 12:00 AM*, ends
-    on *Mon Aug 04 2025 at 12:00 AM*, and has a **Time
-    granularity** of *1 minute*.
+![](./media/image142.png)
 
-    ![Screenshot of the time selector.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image114.png)
+4.  Observe the time series data that's now visible from
+    several **Freezer **entity instances in the time window you
+    selected.
 
-6.  Observe the time series data that's visible from
-    different *Freezer* entity instances.
+![](./media/image143.png)
 
-    ![Screenshot of the time series tiles.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image115.png)
+## Task 3: **View ontology graph**
 
-## Task 2: Preview ontology graph
-
-The preview experience also contains a **Relationship graph**, which you
+The **Overview** tab also contains a **Relationship graph**, which you
 use to visualize your ontology in a graph of nodes and edges.
 
-1.  Use the tabs across the top of the preview experience to reopen
-    the **SaleEvent** entity type. In the **Relationship graph** tile,
-    select **Expand**.
+1.  Use the entity type selector to switch to the **SaleEvent** entity
+    type. In the **Relationship graph** tile, select **Expand**.
 
-    ![A screenshot of a graph AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image116.png)
+> ![](./media/image144.png)
 
-2.  In the **graph**, observe the details of the relationships to
-    the **SaleEvent** entity type from **Store** and **Products**.
+2.  he expanded graph view opens. Observe the details of the
+    relationships from the **SaleEvent **entity type
+    to **Products** and **Store.**
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image117.png)
+![](./media/image145.png)
 
-3.  Open the preview experience for the **Store** entity type,
-    and **Expand** its relationship graph.
+3.  Use the entity type selector to switch to the **Store **entity type.
+    **Expand** its **relationship graph.**
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image118.png)
+![](./media/image146.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image119.png)
+4.  In the graph, observe the relationships that **Store** has
+    with **Freezer **and **SaleEvent**. Then, select **Run query** in
+    the query builder ribbon. This action runs the default query and
+    shows a graph of entity instances alongside their connections
 
-4.  In the graph, observe the relationship
-    between **Store** and **SaleEvent**, and the relationship
-    between **Store** and **Freezer**.
+![](./media/image147.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image120.png)
+![](./media/image148.png)
 
-5.  Then, select **Run query** in the query builder ribbon to run the
-    default query and see a graph of entity instances and their
-    connections.
+![](./media/image149.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image121.png)
+## Task 4: Query graph instances
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image122.png)
+In the relationship graph view, you can query your ontology for entity
+instances that meet certain criteria. Use the **Query builder** filters
+in the top ribbon to craft queries.
 
-## Task 3: Query graph instances
+![](./media/image150.png)
 
-1.  In the relationship graph view, you can query your ontology for
-    entity instances that meet certain criteria. Use the **Query
-    builder** filters in the top ribbon to craft queries.
+First, craft this query: *Show all freezers that are operated in the
+Paris store.*
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image123.png)
+1.  In the *Store* entity's relationship graph, select **Add filter \>
+    Store \> StoreId** from the query builder ribbon. Set the filter
+    for **StoreId = S-PAR-01**. This value is the store ID for the Paris
+    store.
 
-	First, craft this query: +++Show all freezers that are operated in the
-	Paris store.+++
+![](./media/image151.png)
 
-2.  In the **Store** entity's relationship graph, select **Add filter \
-    Store \StoreId** from the query builder ribbon.
+![](./media/image152.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image124.png)
+5.  In the **Components** section, uncheck *SaleEvent* so that the only
+    checked fields are **Nodes \> Store**, **Nodes \> Freezer**,
+    and **Edges \> operates**.
 
-3.  Set the filter for StoreId = S-PAR-01 and select Apply. This value
-    is the store ID for the Paris store.
+![](./media/image153.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image125.png)
+6.  Select **Run query** and verify that the instance graph shows two
+    freezers connected to the *Paris* store.
 
-4.  In the **Components** pane, uncheck **SaleEvent** so that the only
-    checked fields are **Nodes \Store**, **Nodes \Freezer**,
-    and **Edges \operates**.
+![](./media/image154.png)
 
-    ![Screenshot of filtering the components.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image126.png)
+![](./media/image155.png)
 
-5.  Select **Run query** and verify that the instance graph shows two
-    freezers connected to the *Paris* store.
+7.  Select **Clear query** to clear the query results.
 
-    ![Screenshot of the freezers that are connected to the filtered
-store.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image127.png)
+![](./media/image156.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image128.png)
+Next, craft this query: *Show all stores that have made a sale with a
+revenue greater than 150.*
 
-6.  Select **Clear query** to clear the query results, and use
-    the **Remove filter** options to remove the store filter.
+8.  Select **Add a node** and add a node for **SaleEvent.**
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image129.png)
+> ![](./media/image157.png)
 
-	Next, craft this query: **Show all stores that have made a sale with a
-	revenue greater than 150.**
+9.  In the **Components** section, check the boxes next to **Nodes \>
+    Store** and **Edges \> from** to add them to the graph.
 
-7.  Select **Add a node** and add a node for **SaleEvent.**
+![A screenshot of a computer AI-generated content may be
+incorrect.](./media/image158.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image130.png)
+10. From the query builder ribbon, select **Add filter \> SaleEvent \>
+    RevenueUSD**. Set the filter for +++**RevenueUSD \> 150+++.**
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image131.png)
+![](./media/image159.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image132.png)
+![](./media/image160.png)
 
-8.  In the **Components** pane, check the boxes next to **Nodes \
-    Store** and **Edges \has** to add them to the graph.
-
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image133.png)
-
-9.  From the query builder ribbon, select **Add filter \SaleEvent \
-    RevenueUSD**. Set the filter for **RevenueUSD** \150.
-
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image134.png)
-
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image135.png)
-
-10. Select **Run query** and verify that the instance graph shows two
+11. Select **Run query** and verify that the instance graph shows two
     stores that meet the filter for their connected sale events. You can
     also select the nodes in the graph to get details of the specific
-    sale events.
+    sale events
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image136.png)
+![](./media/image161.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image137.png)
+![](./media/image162.png)
 
 This process allows you to inspect the paths that connect operational
 issues (like rising freezer temperature at certain stores) to business
 outcomes (sales).
 
-# Exercise 5: Create data agent
+# Exercise 5: **Consume ontology from agents**
 
-Ontology (preview) integrates with [Fabric data agent
-(preview)](https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent) to
+Ontology (preview) integrates with [Fabric data agent
+(preview)](https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent) to
 let you ask questions in natural language, and get answers grounded in
 the ontology's definitions and bindings.
 
@@ -979,131 +1004,124 @@ the ontology's definitions and bindings.
 Follow these steps to create a new data agent that connects to your
 ontology (preview) item.
 
-1.  Now, click on **Fabric IQ Ontology @lab.labinstance.id** on the left-sided navigation
+1.  Now, click on **Fabric IQ Ontology XX** on the left-sided navigation
     pane.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image138.png)
+![](./media/image163.png)
 
-2.  In the **Fabric** home page, select **+New item.** In the Filter by
-    item type search box, enter +++data agent+++ and select the Data
+2.  In the **Fabric** home page, select **+New item.** In the Filter by
+    item type search box, enter +++**data agent**+++ and select the Data
     agent
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image139.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image164.png)
 
-3.  Enter +++RetailOntologyAgent+++ as the Data agent name and
-    select **Create**.
+3.  Enter **+++RetailOntologyAgent+++** as the Data agent name and
+    select **Create**.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image140.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image165.png)
 
-4.  In **RetailOntologyAgent** page, select **Add a data source**
+4.  In **RetailOntologyAgent** page, select **Add a data source**
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image141.png)
+> ![](./media/image166.png)
 
 5.  In the OneLake catalog tab, select the **RetailSalesOntology**
     Ontology and select **Add.**
-         ![A screenshot of a computer
-    AI-generated content may be incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image142.png)
 
-	When the agent is ready, it opens.
-
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image143.png)
+> ![](./media/image167.png)
+>
+> When the agent is ready, it opens.
+>
+> ![](./media/image168.png)
 
 ## Task 2: Provide agent instructions
 
->[!Note]: This step is added in response to a known issue affecting aggregation in queries.
+** Note:** This step is added in response to a known issue affecting
+aggregation in queries.
 
-Next, add a custom instruction to the agent.
+> Next, add a custom instruction to the agent.
 
-1. Select **Add Data** on the left panel.
+1.  Select **Agent instructions** from the menu ribbon.
 
-2. Select the **RetailSalesOntology**.
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image169.png)
 
-1. Select **Data Source**, **RetailSalesOntology** and select **add**.
+2.  At the bottom of the input box, add +++**Support group by in
+    GQL**+++. This instruction enables better aggregation across
+    ontology data.
 
-3. **Agent instructions** from the menu ribbon.
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image170.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image144.png)
+3.  The instruction is applied automatically. Optionally, close
+    the **Agent instructions** tab.
 
-4.  At the bottom of the input box, add Support group by in GQL. This
-    instruction enables better aggregation across ontology data.
-
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image145.png)
-
-5.  The instruction is applied automatically. Optionally, close
-    the **Agent instructions** tab.
-
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image146.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image171.png)
 
 ## Task 3: Query agent with natural language
 
-Next, explore your ontology with natural language questions.
+> Next, explore your ontology with natural language questions.
 
-1.  Enter the following text and click on the **Submit icon** as shown
+1.  Enter the following text and click on the **Submit icon** as shown
     in the below image.
 
-	+++For each store, show any freezers operated by that store that
-	ever had a humidity lower than 46 percent.+++
+> **+++For each store, show any freezers operated by that store that
+> ever had a humidity lower than 46 percent.+++**
+>
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image172.png)
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image147.png)
+![A screenshot of a chat AI-generated content may be
+incorrect.](./media/image173.png)
 
-    ![A screenshot of a chat AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image148.png)
-
-2.  Enter the following text and click on the **Submit icon** as shown
+2.  Enter the following text and click on the **Submit icon** as shown
     in the below image.
 
-	+++What is the top product by revenue across all stores?+++
+> *+++What is the top product by revenue across all stores?+++*
 
-    ![A screenshot of a chat AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image149.png)
+![A screenshot of a chat AI-generated content may be
+incorrect.](./media/image174.png)
 
-    ![A screenshot of a chat AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image150.png)
+![A screenshot of a chat AI-generated content may be
+incorrect.](./media/image175.png)
 
-	Notice that the responses reference entity types
-	(**Store**, **Products**, **Freezer**) and their relationships, not just raw
-	tables.
+> Notice that the responses reference entity types
+> (*Store*, *Products*, *Freezer*) and their relationships, not just raw
+> tables.
+>
+> ![Screenshot of the result of a query.](./media/image176.png)
+>
+> ** Tip:** If you see errors that say there's no data while running the
+> example queries, wait a few minutes to give the agent more time to
+> initialize. Then, run the queries again.
+>
+> Continue exploring the data agent by trying out some prompts of your
+> own.
 
-    ![Screenshot of the result of a query.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image151.png)
+## Task 4: Clean up resources
 
->[!Tip]:  If you see errors that say there's no data while running the
-example queries, wait a few minutes to give the agent more time to
-initialize. Then, run the queries again.
-
-Continue exploring the data agent by trying out some prompts of your
-own.
-
-**Task 7: Clean up resources**
-
-1.  Select your workspace, the **Fabric IQ Ontology@lab.LabInstance.Id** from the
+1.  Select your workspace, the **Fabric IQ OntologyXX** from the
     left-hand navigation menu. It opens the workspace item view.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image152.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image177.png)
 
 2.  Select the ... option under the workspace name and select
     **Workspace settings**.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image153.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image178.png)
 
-3.  Navigate to the bottom of the General tab and select **Remove this
+3.  Navigate to the bottom of the General tab and select **Remove this
     workspace**.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image154.png)
-
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/msfbrciqdepth/refs/heads/main/Cloud_slice/Labguides/Usecase%2001/media/image155.png)
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image179.png)
+>
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/image180.png)
 
 **Summary**
 
@@ -1114,8 +1132,8 @@ structured lakehouse data with streaming telemetry data, the ontology
 provides a unified, business-friendly view of enterprise data.
 
 Through entity definitions, data bindings, and relationship modeling,
-users can analyze how operational signals-such as freezer temperature or
-humidity-relate to business outcomes like sales and revenue. The use
+users can analyze how operational signals—such as freezer temperature or
+humidity—relate to business outcomes like sales and revenue. The use
 case also highlights how ontologies power graph exploration and natural
 language queries through Fabric data agents, enabling deeper insights
 without requiring users to understand underlying tables or schemas.
