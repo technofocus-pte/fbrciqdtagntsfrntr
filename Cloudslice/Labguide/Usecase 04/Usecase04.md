@@ -296,9 +296,24 @@ solution.
       use** : **@lab.CloudSubscription.Name**
     
     - **'Location' infrastructure
-      parameter:** **Sweden Central**
+      parameter:** **Select the ResourceGroup1 Location**
     
     - **Resource Group:** **@lab.CloudResourceGroup(ResourceGroup1).Name**
+  
+## Note: If the Codespace deployment fails in the selected Azure region, update the deployment region and rerun the deployment.
+```bash
+azd env set AZURE_RESOURCE_LOCATION <region>
+```
+For example:
+```bash
+azd env set AZURE_RESOURCE_LOCATION westus2
+```
+Supported regions:
+* `westus2`
+* `japaneast`
+* `swedencentral`
+* `northeurope`
+After updating the region, rerun the deployment steps.
 
     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image30.png)
 
@@ -424,7 +439,7 @@ solution.
 2.  Select "New item" → Search for "Data Agent" → select Data
     agent
 
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image57.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/img1.png)
 
 4.  Provide the name +++FabricDataAgent@lab.LabInstance.Id+++ and click
     **Create**
