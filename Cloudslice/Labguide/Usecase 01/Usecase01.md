@@ -734,23 +734,23 @@ operation.
 
 ![](./media/image123.png)
 
-2.  Select the **FreezerTelemetry **table and **Add**.
+4.  Select the **FreezerTelemetry **table and **Add**.
 
 ![](./media/image124.png)
 
-4.  A **Timeseries data** section appears in the configuration.
+5.  A **Timeseries data** section appears in the configuration.
     For **Timestamp column**, select timestamp
 
 ![](./media/image125.png)
 
-5.  Scroll down to the **Properties** section, where
+6.  Scroll down to the **Properties** section, where
     the **StoreId **shows an error because it is already bound in the
     static data binding. Use the trash icon to delete the duplicated
     property.
 
 ![](./media/image126.png)
 
-6.  **Save** the data binding. Confirm that the entity type updated
+7.  **Save** the data binding. Confirm that the entity type updated
     successfully, then select **Cancel** to close the configuration
     options.
 
@@ -758,7 +758,7 @@ operation.
 
 ![](./media/image128.png)
 
-7.  Back in the **Configure** page for *Freezer*, notice that there are
+8.  Back in the **Configure** page for *Freezer*, notice that there are
     now more entity type properties, and the new ones are bound to
     the *FreezerTelemetry* data source.
 
