@@ -138,7 +138,7 @@ reports.
 > ![A screenshot of a upload box AI-generated content may be
 > incorrect.](./media/image14.png)
 
-5.  Click and select refresh on the **Files**. The file appear.
+5.Select **Files**. The file appears in the Files pane.
 
 > ![A screenshot of a computer AI-generated content may be
 > incorrect.](./media/image15.png)
