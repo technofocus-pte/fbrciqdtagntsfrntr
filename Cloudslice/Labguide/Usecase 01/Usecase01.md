@@ -123,7 +123,7 @@ reports.
 > ![A screenshot of a computer AI-generated content may be
 > incorrect.](./media/image11.png)
 
-3.  Browse to **C:\LabFiles\LabFiles\Lab1** on your VM, then
+3.  Browse to **C:\LabFiles\Lab1** on your VM, then
     select **DimProducts.csv, DimStore.csv, FactSale.csv** and
     **Freezer.csv** file and click on **Open** button.
 
