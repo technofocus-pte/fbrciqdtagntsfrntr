@@ -93,8 +93,7 @@ reports.
 > ![A screenshot of a computer AI-generated content may be
 > incorrect.](./media/image6.png)
 
-3.  In the **New lakehouse** dialog box, enter **+++IQ_Lakehouse
-    +++** in the **Name** field and **unselect** the lakehouses schemas.
+3.  In the **New lakehouse** dialog box, enter **+++IQ_Lakehouse+++** in the **Name** field and **unselect** the lakehouses schemas.
     Click on the **Create** button and open the new lakehouse.
 
 > ![A screenshot of a computer AI-generated content may be
