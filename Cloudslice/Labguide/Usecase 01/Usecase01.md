@@ -55,8 +55,8 @@ reports.
 
 | Credential | Value |
 |------------|-------|
-| Username | `+++@lab.CloudPortalCredential(User1).Username+++` |
-| Password | `+++@lab.CloudPortalCredential(User1).Password+++` |
+| Username | +++@lab.CloudPortalCredential(User1).Username+++ |
+| Password | +++@lab.CloudPortalCredential(User1).Password+++ |
 
 2.  In the Workspaces pane, click on **+New workspace** tile
 
