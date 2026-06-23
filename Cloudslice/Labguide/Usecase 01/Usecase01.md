@@ -57,8 +57,10 @@ reports.
 |------------|-------|
 | Username | +++@lab.CloudPortalCredential(User1).Username+++ |
 | Password | +++@lab.CloudPortalCredential(User1).Password+++ |
-
-2.  In the Workspaces pane, click on **+New workspace** tile
+2. In the portal, switch to Fabric Mode before proceeding to create workspace.
+> ![A screenshot of a computer AI-generated content may be
+> incorrect.](./media/imga1.png)
+3.  In the Workspaces pane, click on **+New workspace** tile
 
 > ![A screenshot of a computer AI-generated content may be
 > incorrect.](./media/image1.png)
@@ -121,7 +123,7 @@ reports.
 > ![A screenshot of a computer AI-generated content may be
 > incorrect.](./media/image11.png)
 
-3.  Browse to **C:\LabFiles\LabFiles** on your VM, then
+3.  Browse to **C:\LabFiles\LabFiles\Lab1** on your VM, then
     select **DimProducts.csv, DimStore.csv, FactSale.csv** and
     **Freezer.csv** file and click on **Open** button.
 
