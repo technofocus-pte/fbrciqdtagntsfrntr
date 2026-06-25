@@ -345,7 +345,7 @@ After updating the region, rerun the deployment steps.
 14. Run the following command in the terminal to install the required
     Python dependencies
 
-    +++pip install uv && uv venv .venv && source .venv/bin/activate && uv pip install -r scripts/requirements.txt+++
+    +++pip install uv && uv pip install -r scripts/requirements.txt+++
 
     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image37.png)
 
