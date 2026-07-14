@@ -174,10 +174,9 @@ becomes the structured data foundation that the Data Agent will query.
 
     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2002/media/image19.png)
 
-5.  Create a new notebook in the workspace where you want to create your
-    Fabric data agent.
+5.  From the Lakehouse home page, select the drop-down arrow next to Analyze data with, select New notebook, and then choose Notebook to create a new Spark notebook.
 
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2002/media/image20.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2002/media/img1.png)
 
 6.  Update the code in the **cell** with the following code and click
     on **▷ Run cell** that appears to the left of the cell.
