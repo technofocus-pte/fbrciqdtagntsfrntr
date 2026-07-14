@@ -976,7 +976,7 @@ revenue greater than 150.*
     Store** and **Edges \> from** to add them to the graph.
 
 ![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image158.png)
+incorrect.](./media/imga3.png)
 
 10. From the query builder ribbon, select **Add filter \> SaleEvent \>
     RevenueUSD**. Set the filter for +++**RevenueUSD \> 150+++.**
