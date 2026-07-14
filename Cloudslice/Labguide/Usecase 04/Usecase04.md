@@ -213,7 +213,7 @@ solution.
 ## Task 3: Open development environment
 
 1.  Open your browser, navigate to the address bar, type or paste the
-    following URL: +++https://github.com/technofocus-pte/agnticapp-for-unified-data+++
+    following URL: +++https://github.com/technofocus-pte/agentic-applications-for-unifieddata-foraccelerator.git+++
 
     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image13.png)
 
