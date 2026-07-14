@@ -946,7 +946,7 @@ Paris store.**
 
 ![](./media/image151.png)
 
-![](./media/image152.png)
+![](./media/imga2.png)
 
 5.  In the **Components** section, uncheck *SaleEvent* so that the only
     checked fields are **Nodes \> Store**, **Nodes \> Freezer**,
@@ -955,7 +955,7 @@ Paris store.**
 ![](./media/image153.png)
 
 6.  Select **Run query** and verify that the instance graph shows two
-    freezers connected to the *Paris* store.
+    freezers connected to the **Paris** store.
 
 ![](./media/image154.png)
 
