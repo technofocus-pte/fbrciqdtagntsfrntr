@@ -227,9 +227,9 @@ questions.
 
 3.  In the **Filter by item type** search box, enter +++data agent+++ and select the **Data agent.**
 
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2002/media/image28.png)
+    ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2002/media/img2.png)
 
-4.  Enter +++AI-agent+++ as the Data agent name and
+4.  Enter **+++AI-agent+++** as the Data agent name and
     select **Create**.
 
     ![A screenshot of a computer AI-generated content may be
