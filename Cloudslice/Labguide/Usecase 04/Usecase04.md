@@ -281,13 +281,13 @@ solution.
 
 	>[!alert] Navigate to the **Infra** folder on the left hand side, open the **main.bicep** file on **line 122** and switch the *Lab Instance ID* string to +++@lab.LabInstance.Id+++.
 	
-8.  Provision and deploy all the resources:
+7.  Provision and deploy all the resources:
 
     +++azd up+++
 
     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image29.png)
 
-9.  Select below values.
+8.  Select below values.
 
     - **To create an environment for Azure resources**,
       enter +++env@lab.LabInstance.Id+++
@@ -300,20 +300,20 @@ solution.
     
     - **Resource Group:** **@lab.CloudResourceGroup(ResourceGroup1).Name**
   
-## Note: If the Codespace deployment fails in the selected Azure region, update the deployment region and rerun the deployment.
-```bash
-azd env set AZURE_RESOURCE_LOCATION <region>
-```
-For example:
-```bash
-azd env set AZURE_RESOURCE_LOCATION westus2
-```
-Supported regions:
-* `westus2`
-* `japaneast`
-* `swedencentral`
-* `northeurope`
-After updating the region, rerun the deployment steps.
+	## Note: If the Codespace deployment fails in the selected Azure region, update the deployment region and rerun the deployment.
+	```bash
+	azd env set AZURE_RESOURCE_LOCATION <region>
+	```
+	For example:
+	```bash
+	azd env set AZURE_RESOURCE_LOCATION westus2
+	```
+	Supported regions:
+	* `westus2`
+	* `japaneast`
+	* `swedencentral`
+	* `northeurope`
+	After updating the region, rerun the deployment steps.
 
     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image30.png)
 
@@ -321,20 +321,20 @@ After updating the region, rerun the deployment steps.
 
     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image32.png)
 
-10.  This deployment will take *7-10 minutes* to provision the resources
+9.  This deployment will take **7-10 minutes** to provision the resources
     in your account and set up the solution with sample data.
 
-11. Now the deployment is complete
+10. Now the deployment is complete
 
     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image33.png)
 
-12. Create and activate a virtual environment
+11. Create and activate a virtual environment
 
     +++python -m venv .venv+++
 
     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image34.png)
 
-13. Use the top-left **menu icon** in **Visual Studio Code**, then
+12. Use the top-left **menu icon** in **Visual Studio Code**, then
     navigate to **Terminal → New Terminal** to open a new terminal
     window in the workspace
 
@@ -342,7 +342,7 @@ After updating the region, rerun the deployment steps.
 
     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image36.png)
 
-14. Run the following command in the terminal to install the required
+13. Run the following command in the terminal to install the required
     Python dependencies
 
     +++pip install uv && uv pip install -r scripts/requirements.txt+++
@@ -351,7 +351,7 @@ After updating the region, rerun the deployment steps.
 
     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image38.png)
 
-15. Run the following command on the Terminal. It generates the code to
+14. Run the following command on the Terminal. It generates the code to
     copy. Copy the code and press Enter.
 
     +++az login+++
@@ -362,12 +362,12 @@ After updating the region, rerun the deployment steps.
 
     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image41.png)
 
-16. Select your **Azure subscription** from the list to continue the
+15. Select your **Azure subscription** from the list to continue the
     setup process.
 
     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image42.png)
 
-17. Run the bash script from the output of the azd deployment. Replace
+16. Run the bash script from the output of the azd deployment. Replace
     the with your Fabric workspace Id created in the previous steps. The
     script will look like the following:
 
@@ -378,7 +378,7 @@ After updating the region, rerun the deployment steps.
 
     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image43.png)
 
-18. Press Enter to start create resources
+17. Press Enter to start create resources
 
     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2004/media/image44.png)
 
