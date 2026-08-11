@@ -386,7 +386,7 @@ This exercise focuses on enabling Copilot Studio to communicate with the Fabric 
     - **Description**: +++An agent connected to a Microsoft Fabric data
       agent specializing in e-commerce business knowledge and support+++
 
-    - Select your agent’s model, select **Claude Sonnet 4.5**
+    - Select your agent’s model, select **Claude Sonnet 4.6**
 
     - **Instructions**: Copy the instructions from the code block below
 
