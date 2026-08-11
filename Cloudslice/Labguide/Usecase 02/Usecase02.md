@@ -241,7 +241,7 @@ incorrect.](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr
 
      ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2002/media/image31.png)
 
-6.  In the **OneLake catalog** tab, select the **AI-Fabric_lakehouse
+6.  In the **OneLake catalog** tab, select the **AdventureWorksLH
     lakehouse** and select **Add**.
 
     ![](https://raw.githubusercontent.com/technofocus-pte/fbrciqdtagntsfrntr/refs/heads/main/Cloudslice/Labguide/Usecase%2002/media/image32.png)
