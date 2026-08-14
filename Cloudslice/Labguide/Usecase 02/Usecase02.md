@@ -1,3 +1,12 @@
+---
+lab:
+  title: load list of tables
+  description: In this task, you will create a Fabric Data Agent and connect it to the Lakehouse. You will select the required Dimension and Fact tables to enable the agent to answer a wide range of sales‑related analytics questions.
+  duration: 5 minutes
+  level: 300
+  islab: true
+---
+
 ## Usecase 02 - Build sales analytics with AdventureWorks dataset using Fabric data agent
 
 **Introduction**

@@ -1,3 +1,12 @@
+---
+lab:
+  title: 'Exercise 1: Creating and Configuring the Fabric Data Agent'
+  description: This exercise focuses on enabling Copilot Studio to communicate with the Fabric Data Agent. You will create a Copilot agent, configure its behavior, link it to the Fabric Agent, and ensure that both agents collaborate to produce richer insights. This establishes multi‑agent communication across platforms.
+  duration: 5 minutes
+  level: 300
+  islab: true
+---
+
 ## Usecase 05 - Integrate Fabric Data Agent with Microsoft Teams for actionable insights and agent-to-agent collaboration using Copilot Studio
 
 **Introduction**

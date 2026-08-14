@@ -1,3 +1,16 @@
+---
+lab:
+  title: Usecase 03 - Build Fabric Data Agent using Mirrored Azure SQL Database in Microsoft Fabric
+  description: The objective of this lab is to demonstrate how to build and configure a Fabric Data Agent that can analyze mirrored operational data from an Azure SQL Database.
+  duration: 5 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Azure
+    - Azure SQL Database
+    - Microsoft Fabric
+---
+
 ## Usecase 03 - Build Fabric Data Agent using Mirrored Azure SQL Database in Microsoft Fabric
 
 **Introduction**

@@ -1,3 +1,14 @@
+---
+lab:
+  title: Usecase 04 - Connect Fabric Data Agent to Microsoft Foundry for unified and intelligent data insights
+  description: Once navigated to Foundry Portal, select Agents from the left menu you will already see an agent pre created. If not created, then please click on the + New agent option to get it created.
+  duration: 5 minutes
+  level: 400
+  islab: true
+  primarytopics:
+    - Microsoft Foundry
+---
+
 ## Usecase 04 - Connect Fabric Data Agent to Microsoft Foundry for unified and intelligent data insights
 **Introduction**
 

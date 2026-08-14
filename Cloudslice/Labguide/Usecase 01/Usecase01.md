@@ -1,3 +1,12 @@
+---
+lab:
+  title: 'Exercise 1: Environment Setup'
+  description: In this exercise, explore your ontology by using the preview experience. Inspect entity instances that instantiate your entity types with data, and explore graph-shaped context across sales and device streaming data.
+  duration: 5 minutes
+  level: 200
+  islab: true
+---
+
 ## Use Case 1 - From Semantics to Insights: Leveraging Fabric IQ Ontology with Fabric Data Agents
 
 **Introduction**
