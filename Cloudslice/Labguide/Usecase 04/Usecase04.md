@@ -307,7 +307,7 @@ solution.
       use** : **@lab.CloudSubscription.Name**
     
     - **'Location' infrastructure
-      parameter:** **Select the ResourceGroup1 Location**
+      parameter:** **Select the ResourceGroup1 Location** **(westus3)**
     
     - **Resource Group:** **@lab.CloudResourceGroup(ResourceGroup1).Name**
   
