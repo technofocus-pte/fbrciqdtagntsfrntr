@@ -832,7 +832,8 @@ An **entity type key** uniquely identifies each record of an entity type. All th
 
 **Note:** Skip **Sale** and **Refrigeration Telemetry**; they aren't included in the graph in this lab.
 
-### Task 3: Materialize the graph
+### Task 3: Materialize the graph(Optional)
+[!IMPORTANT] Materializing the entire ontology can take more than two hours to complete. This is a temporary issue. To avoid extended processing times, materialize only the required components.
 
 1.  Select **Home**, and then select **Manage graph** on the ribbon.
 
